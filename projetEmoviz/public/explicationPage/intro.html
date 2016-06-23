@@ -1,0 +1,51 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Erreur</title>
+<script>
+	var CheminComplet = document.location.href;
+	var count = 0;
+	var pos = CheminComplet.indexOf('/');
+
+	while (pos !== -1 && count != 2) {
+		
+		count++;
+		pos = CheminComplet.indexOf('/', pos + 1);
+	}
+	
+	var path = CheminComplet.substring(0, pos+1 );
+	function lienQuestionnaire(){
+		window.location.href = path + "questionnaire/"+ document.getElementById("monPseudo").value;
+	}
+	function lienVisualisation(){
+		window.location.href = path + "visualisation/"+ document.getElementById("monPseudo").value;
+	}
+	function lienAnnotation(dossier){
+		window.location.href = path + "image/"+dossier +"/"+ document.getElementById("monPseudo").value;
+	}
+</script>
+</head>
+<body>
+<div class="text">
+	<h1>L'url que vous demandez n'existe pas</h1>
+	<label>Votre nom : </label><input type="text" id = "monPseudo" ></input>
+	<p>Voici une liste des différentes URL disponible : </p>
+	<p><a href="javascript:lienQuestionnaire()">Questionnaire</a> <br />
+	<p><a href="javascript:lienVisualisation()">Visualisation</a> <br />
+	 <ul>
+		<li > <a href="javascript:lienAnnotation('ChapitreEmotions')">Introduction aux émotions</a></li>
+		<li> <a href="javascript:lienAnnotation('ChapitreRegulation')">Régulation </a></li>
+		<li> <a href="javascript:lienAnnotation('ChapitreStressCoping')">Stress Coping</a></li>
+	 </ul> 
+</p>
+</div>
+
+
+
+</body>
+</html>
+
+

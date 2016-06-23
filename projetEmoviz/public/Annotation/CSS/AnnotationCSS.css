@@ -1,0 +1,20 @@
+
+.mypopup{
+	position: absolute;
+	/*background-color: rgb(0,0,0);*/
+	font-family : "Helvetica Neue";
+	width  : 100px;
+	height : 100px;
+	z-index : 100;
+}
+.borderNull {
+
+}
+.borderBlack {
+	border : 1px solid #000000;
+
+}
+.borderRed {
+	border : 1px solid #FF0033;
+
+}

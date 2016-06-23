@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/home/sshUser/projetEmoviz/favicon.ico">
+
+    <title>Questionnaire sur les émotions</title>
+
+   	<!--
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  	-->
+  	
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		
+		
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+	
+    <!-- Custom styles for this template -->
+   <!-- <link href="theme.css" rel="stylesheet"> -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <body role="document" >
+		<!--Incoming Chat: <ul id="incomingChatMessages"></ul>-->
+
+		<style>
+			table, th, td {
+		  		border: 1px solid black;
+		  		font-family : "Helvetica Neue";
+			}
+		</style>
+		<script>
+		var firstDate = new Date();
+		var myType;
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ 			myType = "smartphone";
+		}else {
+			myType = "computer";
+		}
+	
+		$(function(){
+						
+            var iosocket = io.connect();
+			
+            var CheminComplet = document.location.href;
+						  var NomDuFichier = CheminComplet.substring(CheminComplet.lastIndexOf( "/" )+1 );
+						
+            $('#sender').click(function(event) {
+            
+                event.preventDefault();
+                var newDate = new Date();
+                
+								var json = { 
+    								Q1: $('input[name=Q1]:checked').val(), 
+    								Q2: $('#Q2').val(),
+    								Q3: $('input[name=Q3]:checked').val(),
+    								Q4: $('input[name=Q4]:checked').val(),
+    								Q5: $('input[name=Q5]:checked').val(),
+    								Q6_1:$('input[name=Q6-Engagement]:checked').val(),
+    								Q6_2:$('input[name=Q6-Plaisir]:checked').val(),
+    								Q6_3:$('input[name=Q6-Confusion]:checked').val(),
+    								Q6_4:$('input[name=Q6-Ennui]:checked').val(),
+    								Q6_5:$('input[name=Q6-Frustration]:checked').val(),
+    								Q6_6:$('input[name=Q6-Anxiete]:checked').val(),
+    								Q6_7:$('input[name=Q6-Curiosité]:checked').val(),
+    								Q6_8:$('input[name=Q6-Neutre]:checked').val(),
+    								Q6_9:$('input[name=Q6-Surprise]:checked').val(),
+    								Q7: $('input[name=Q7]:checked').val(),
+    								Q8: $('input[name=Q8]:checked').val(),
+    								Q9: $('input[name=Q9]:checked').val(),
+    								day : firstDate,
+    								timeBegin : (firstDate.getHours()).toString()+":"+firstDate.getMinutes().toString()+":"+firstDate.getSeconds().toString(),
+    								timeEnd : newDate.getHours().toString()+":"+newDate.getMinutes().toString()+":"+newDate.getSeconds().toString(),
+    								type : myType,
+    								URL : NomDuFichier 	
+ 								 };
+                //iosocket.send($('#selectemotionOne').val());
+								iosocket.send(json);
+                
+
+                document.body.removeChild( document.getElementById("thankyou"));
+                var myCont = document.createElement("div");
+                myCont.className = " container theme-showcase";
+                myCont.role ="main";
+                var titreDiv = document.createElement("h2");
+                titreDiv.innerHTML = "Questionnaire";
+                var myDiv = document.createElement("div");
+                myDiv.className = "has-success bg-success";
+								var myLabel = document.createElement("label");
+								myLabel.className = "control-label";
+								//document.body.className = " ";
+								myLabel.innerHTML = "Merci pour votre participation.</br>Nous vous rappelons que toutes les informations fournies ne seront pas diffusées.";
+								myLabel.id = "mylabel";
+								
+								myDiv.appendChild(myLabel);
+								myCont.appendChild(titreDiv);
+								myCont.appendChild(myDiv);
+								document.body.appendChild(myCont);
+								
+                
+          });
+
+        });
+
+    </script>
+
+    <div id="thankyou" class="container theme-showcase " style ="width: 1300px !important;" role="main">
+
+      <div >
+        <h2>Questionnaire</h2>
+        <!--<div class="form-group ">
+					<label>Merci de répondre aux questions suivantes. Les questions portent sur le moment présent, c’est-à-dire sur ce que vous êtes en train de faire/ressentir. Il n’y a pas de réponses vraies ou fausses, et notre objectif n’est pas de vous juger/évaluer. Aussi, soyez le plus spontané(e) et le plus honnête possible. Merci !
+					</label>
+				</div>-->
+      </div>
+
+			
+      <div class="form-group ">
+      <label>Travaillez-vous actuellement sur vos cours Unidistance ?</label>
+     			<div class="radio">
+	  				<label><input type="radio" name="Q1" value="1">Non, et je n’y pense pas</label>
+					</div>
+					<div class="radio">
+	  				<label><input type="radio" name="Q1" value="2">Non, mais j’y pense</label>
+					</div>
+					<div class="radio disabled">
+						<label><input type="radio" name="Q1" value="3">Oui</label>
+					</div>
+      </div>
+      
+      <div class="form-group ">
+  			<label for="comment">Si vous travaillez sur vos cours Unidistance, qu’êtes-vous en train de faire ? </br></label>
+  			<div><label for="comment" class="text-muted" >Essayez d’être précis tout en étant concis.</label></div>
+  			
+  			<div style="width:390px">
+  				<textarea class="form-control " rows="1"  id="Q2"></textarea>
+				</div>
+			</div>
+      
+		
+      <div class=" form-group">
+      	<label>Quel est votre niveau de maîtrise sur ce que vous êtes en train de faire ?</label>
+
+					 </br>
+					 
+			    	<label class="text-warning">Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q3"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q3"value=1>
+			  		<input class="radio-inline" type="radio" name="Q3"value=2>
+			  		<input class="radio-inline" type="radio" name="Q3"value=3>
+			  		<input class="radio-inline" type="radio" name="Q3"value=4>
+			  		<input class="radio-inline" type="radio" name="Q3"value=5>
+			  		<input class="radio-inline" type="radio" name="Q3"value=6>
+			  		<input class="radio-inline" type="radio" name="Q3"value=7>
+			  		<label class="text-success">Tout à fait</label>
+	    		</br>
+    		</div>
+      
+      <div class=" form-group">
+      	<label>Pensez-vous que cela vous est utile?</label>
+       	
+		      </br>
+			    	<label class="text-warning">Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q4"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q4"value=1>
+			  		<input class="radio-inline" type="radio" name="Q4"value=2>
+			  		<input class="radio-inline" type="radio" name="Q4"value=3>
+			  		<input class="radio-inline" type="radio" name="Q4"value=4>
+			  		<input class="radio-inline" type="radio" name="Q4"value=5>
+			  		<input class="radio-inline" type="radio" name="Q4"value=6>
+			  		<input class="radio-inline" type="radio" name="Q4"value=7>
+			  		<label class="text-success">Tout à fait</label>
+	    		</br>
+    		</div>
+       <div class=" form-group">
+      	<label>Vous sentez-vous actif(ve) par rapport à ce que vous êtes en train de faire ?</label>
+
+		      </br>
+			    	<label class="text-warning">Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q5"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q5"value=1>
+			  		<input class="radio-inline" type="radio" name="Q5"value=2>
+			  		<input class="radio-inline" type="radio" name="Q5"value=3>
+			  		<input class="radio-inline" type="radio" name="Q5"value=4>
+			  		<input class="radio-inline" type="radio" name="Q5"value=5>
+			  		<input class="radio-inline" type="radio" name="Q5"value=6>
+			  		<input class="radio-inline" type="radio" name="Q5"value=7>
+			  		<label class="text-success">Tout à fait</label>
+	    		</br>
+    		</div>
+      
+  	 	<div class="form-group ">
+				<label>Quelle(s) émotion(s) ressentez-vous et à quelle intensité ? </label>
+				<!--(Une échelle de Likert apparaît lorsque vous cliquez sur les cases de la colonne "Cochez si ressentie")-->
+				</br>
+				<label class="text-muted">Lorsque vous placez la souris sur une émotion, vous pouvez lire sa définition.</label>
+				<!--<div class = "col-md-11">
+				
+					<select class="form-control" id="Q6">
+						<option>Engagement</option>
+						<option>Plaisir</option>
+						<option>Confusion</option>
+						<option>Ennui</option>
+						<option>Frustration</option>
+						<option>Anxiété</option>
+					</select>
+				</div>-->
+				
+	<table  > <!-- class="table table-bordered "-->
+   <!-- <col width ="140" >
+    <col width ="240">
+    <col width ="560">-->
+    <thead>
+      <tr>
+        <th style="width:100px">Emotion</th>
+        <th style="width:160px">Cochez si ressentie</th>
+        <th style="width:390px">Intensité</th>
+      </tr>
+    </thead>
+    <tbody>
+   		 <tr height="44px" >
+        <td title ="Se sentir avoir atteint un haut degré de bien-être et de satisfaction.">Plaisir</td>
+        <td><input id="Q6-Plaisir-Checkbox" class="checkbox" type="checkbox" name ="Q6-Plaisir-Checkbox" onclick="myFunctionPlaisir();"></td>
+        <td id ="parent_Plaisir">
+        	<label class="text-warning hidden">Très faible </label>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=-1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=2>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=3>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=4>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=5>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=6>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Plaisir"value=7>
+		  		<label class="text-success hidden">Très forte</label> 
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title ="Se sentir nerveux, mal à l’aise, inquiet, préoccupé.">Anxiété</td>
+        <td><input id="Q6-Anxiete-Checkbox" class="checkbox" type="checkbox" name ="Q6-Anxiete-Checkbox"onclick="myFunctionAnxiete();"></td>
+        <td id ="parent_Anxiete">
+        	<label class="text-warning hidden"> Très faible </label>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=-1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=2>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=3>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=4>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=5>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=6>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Anxiete"value=7>
+		  		<label class="text-success hidden">Très forte</label> 
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title ="Se sentir désireux d’en connaître plus ou d’apprendre plus en profondeur.">Curiosité</td>
+        <td><input id="Q6-Curiosité-Checkbox" class="checkbox" type="checkbox" name ="Q6-Curiosité-Checkbox" onclick="myFunctionCuriosité();"></td>
+        <td id="parent_Curiosité">
+        		<label class="text-warning hidden">Très faible </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=-1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=2>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=3>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=4>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=5>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=6>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Curiosité"value=7>
+			  		<label class="text-success hidden">Très forte</label>
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title ="Se sentir fatigué ou agité par manque d’intérêt.">Ennui</td>
+        <td><input id="Q6-Ennui-Checkbox" class="checkbox" type="checkbox" name ="Q6-Ennui-Checkbox" onclick="myFunctionEnnui();"></td>
+        <td id="parent_Ennui">
+        	<label class="text-warning hidden">Très faible </label>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=-1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=2>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=3>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=4>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=5>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=6>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Ennui"value=7>
+		  		<label class="text-success hidden">Très forte</label> 
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title="Etat d’intérêt et de concentration qui résulte d’une totale implication dans la tâche.">Engagement</td>
+        <td><input id="Q6-Engagement-Checkbox" class="checkbox" type="checkbox" name ="Q6-Engagement-Checkbox" onclick="myFunctionEngagement();"></td>
+        <td id="parent_Engagement">
+        		<label class="text-warning hidden">Très faible </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=-1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=2>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=3>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=4>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=5>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=6>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Engagement"value=7>
+			  		<label class="text-success hidden">Très forte</label>
+        </td>  
+      </tr>
+      
+      <tr height="44px">
+        <td title="Ressentir un manque de compréhension, une incertitude quant à la façon de faire.">Confusion</td>
+        <td><input id="Q6-Confusion-Checkbox" class="checkbox" type="checkbox" name ="Q6-Confusion-Checkbox" onclick="myFunctionConfusion();"></td>
+        <td id= "parent_Confusion">
+        	<label class="text-warning hidden">Très faible </label>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=-1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=2>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=3>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=4>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=5>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=6>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Confusion"value=7>
+		  		<label class="text-success hidden">Très forte</label> 
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title="Se sentir dans un état d’étonnement surtout face à l’inattendu.">Surprise</td>
+        <td><input id="Q6-Surprise-Checkbox" class="checkbox" type="checkbox" name ="Q6-Surprise-Checkbox" onclick="myFunctionSurprise();"></td>
+        <td id="parent_Surprise">
+        		<label class="text-warning hidden">Très faible </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=-1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=2>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=3>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=4>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=5>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=6>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Surprise"value=7>
+			  		<label class="text-success hidden">Très forte</label>
+        </td>  
+      </tr>
+      <tr height="44px">
+        <td title="Se sentir insatisfait ou gêné d’être ‘’coincé’’, dans l’incapacité d’avancer.">Frustration</td>
+        <td><input id="Q6-Frustration-Checkbox" class="checkbox" type="checkbox" name ="Q6-Frustration-Checkbox" onclick="myFunctionFrustration();"></td>
+        <td id="parent_Frustration">
+        	<label class="text-warning hidden">Très faible </label>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=-1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=1>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=2>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=3>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=4>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=5>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=6>
+		  		<input class="radio-inline hidden" type="radio" name="Q6-Frustration"value=7>
+		  		<label class="text-success hidden">Très forte</label> 
+        </td>  
+      </tr>  
+      <tr height="44px">
+        <td title="Pas d’émotions ou de sentiments apparents.">Neutre</td>
+        <td><input id="Q6-Neutre-Checkbox" class="checkbox" type="checkbox" name ="Q6-Neutre-Checkbox" onclick="myFunctionNeutre();"></td>
+        <td id="parent_Neutre">
+        		<label class="text-warning hidden">Très faible </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=-1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=1>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=2>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=3>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=4>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=5>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=6>
+			  		<input class="radio-inline hidden" type="radio" name="Q6-Neutre"value=7>
+			  		<label class="text-success hidden">Très forte</label>
+        </td>  
+      </tr>  
+    </tbody>
+  </table>
+      
+		
+    		</div>
+        
+      <div class=" form-group">
+      	<label>Souhaiteriez-vous partager ce que vous ressentez actuellement à vos collègues étudiant-e-s ?</label>
+       	
+
+		    	</br>
+			    	<label class="text-warning">Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q7"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q7"value=1>
+			  		<input class="radio-inline" type="radio" name="Q7"value=2>
+			  		<input class="radio-inline" type="radio" name="Q7"value=3>
+			  		<input class="radio-inline" type="radio" name="Q7"value=4>
+			  		<input class="radio-inline" type="radio" name="Q7"value=5>
+			  		<input class="radio-inline" type="radio" name="Q7"value=6>
+			  		<input class="radio-inline" type="radio" name="Q7"value=7>
+			  		<label class="text-success">Tout à fait</label>
+	    		</br>
+    		</div>
+      
+      <div class=" form-group">
+      	<label>Savez-vous ce que vos collègues étudiant-e-s ressentent actuellement ?</label>
+       	
+
+		   		 </br>
+			    	<label class="text-warning"> Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q8"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q8"value=1>
+			  		<input class="radio-inline" type="radio" name="Q8"value=2>
+			  		<input class="radio-inline" type="radio" name="Q8"value=3>
+			  		<input class="radio-inline" type="radio" name="Q8"value=4>
+			  		<input class="radio-inline" type="radio" name="Q8"value=5>
+			  		<input class="radio-inline" type="radio" name="Q8"value=6>
+			  		<input class="radio-inline" type="radio" name="Q8"value=7>
+			  		<label class="text-success">Tout à fait</label>
+	    		</br>
+    		</div>
+      <div class=" form-group">
+      	<label>Est-ce que vos collègues étudiant-e-s savent ce que vous ressentez actuellement ?</label>
+       	
+
+
+		       </br>
+			    	<label class="text-warning"> Pas du tout </label>
+			  		<input class="radio-inline hidden" type="radio" name="Q9"value=-1>
+			  		<input class="radio-inline" type="radio" name="Q9"value=1>
+			  		<input class="radio-inline" type="radio" name="Q9"value=2>
+			  		<input class="radio-inline" type="radio" name="Q9"value=3>
+			  		<input class="radio-inline" type="radio" name="Q9"value=4>
+			  		<input class="radio-inline" type="radio" name="Q9"value=5>
+			  		<input class="radio-inline" type="radio" name="Q9"value=6>
+			  		<input class="radio-inline" type="radio" name="Q9"value=7>
+			  		<label class="text-success"> Tout à fait</label>
+	    		</br>
+    		</div>
+      <div class="">
+      
+      
+      <button type="button" id="sender" class="btn btn-md btn-default"value ="sender" >Envoyer</button>
+			</div>      
+
+    </div> <!-- /container -->
+		<script>
+			// soucis pour récuperer l'objet courant. Si solution, sa pourrait simplifier le code et necessité de faire qu'une fonction
+			function myFunctionEngagement() {
+				var that = document.getElementById("Q6-Engagement-Checkbox");
+				var childrens = document.getElementById("parent_Engagement").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+						childrens[i].value = "0";
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionPlaisir() {
+				var that = document.getElementById("Q6-Plaisir-Checkbox");
+				var childrens = document.getElementById("parent_Plaisir").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionConfusion() {
+				var that = document.getElementById("Q6-Confusion-Checkbox");
+				var childrens = document.getElementById("parent_Confusion").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionEnnui() {
+				var that = document.getElementById("Q6-Ennui-Checkbox");
+				var childrens = document.getElementById("parent_Ennui").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionFrustration() {
+				var that = document.getElementById("Q6-Frustration-Checkbox");
+				var childrens = document.getElementById("parent_Frustration").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionAnxiete() {
+				var that = document.getElementById("Q6-Anxiete-Checkbox");
+				var childrens = document.getElementById("parent_Anxiete").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionCuriosité() {
+				var that = document.getElementById("Q6-Curiosité-Checkbox");
+				var childrens = document.getElementById("parent_Curiosité").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+						childrens[i].value = "0";
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionNeutre() {
+				var that = document.getElementById("Q6-Neutre-Checkbox");
+				var childrens = document.getElementById("parent_Neutre").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+						childrens[i].value = "0";
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+			function myFunctionSurprise() {
+				var that = document.getElementById("Q6-Surprise-Checkbox");
+				var childrens = document.getElementById("parent_Surprise").children;
+				
+				if (that.checked){
+					childrens[0].className = "text-warning";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline";
+					}
+					childrens[9].className = "text-success";
+				}
+				else {
+					childrens[0].className = "text-warning hidden";
+					for (var i =2; i<childrens.length -1;i++){
+						childrens[i].className = "radio-inline hidden";
+						childrens[i].checked = false;
+						childrens[i].value = "0";
+					}
+					childrens[9].className = "text-success hidden";
+				}
+			}
+		
+		
+		</script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/docs.min.js"></script>-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

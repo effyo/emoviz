@@ -1,0 +1,142 @@
+<!-- pas fini du tout-->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Visualisation annotation pieChart </title>
+
+   	<!--
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  	-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/public/fichierJS/pieChart.js"> </script>
+    <!-- Custom styles for this template -->
+   <!-- <link href="theme.css" rel="stylesheet"> -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+		<script>
+	
+		$(function(){
+			var listEmotion = new Array("Plaisir", "Anxiete", "Curiosite", "Ennui", "Engagement", "Confusion", "Surprise", "Frustration");
+			var cptEmotion = new Array();
+			for (var j =0; j<listEmotion.length;j++){
+				cptEmotion.push(0);
+			
+			}
+      var iosocket = io.connect();
+			iosocket.emit('askAnnotationAll',"hello");
+      iosocket.on('resultAnnotationAll', function(rows){
+      var nest = d3.nest()
+				.key(function(d) { return d.src; })
+				.entries(rows);
+				//console.log(nest);
+				
+			for (var eachDay = 0; eachDay<nest.length; eachDay++){
+				var temp = nest[eachDay]["values"];
+				for (var eachRow = 0; eachRow<temp.length; eachRow++){
+				
+					emotionCompteur(temp[eachRow]);
+				
+				}
+				createPieChart(cptEmotion, document.getElementById("body1"));
+			}
+	
+		});  
+		
+		function emotionCompteur(annotation) {
+				
+				for (var i =0; i<listEmotion.length;i++){
+					if (annotation["emotion"].indexOf(listEmotion[i])){
+						cptEmotion[8]++;
+					}
+				
+				}
+		
+		
+		}		
+   });
+    
+    
+    </script>
+    
+    
+    <body>
+    	<div id="body1">
+    		<h2>Liste des annotation de la personne :</h2>
+    		
+	  	</div>
+	  	
+	  	
+    
+    
+    </body>
+    
+   	<script>
+   	/* first version
+   	function cutImageUp(annotation) {
+				
+				var parent = document.getElementById("body1");
+			
+				
+				var canvas = document.createElement('canvas');
+				var conteneur = document.createElement('div');
+				var label = document.createElement('label');
+				label.innerHTML = annotation["text"] + "\n"+ annotation["emotion"];
+				
+				if(pair){
+					conteneur.appendChild(label);
+					conteneur.appendChild(canvas);
+					pair = false;
+					conteneur.align="right";
+					console.log(pair);
+				}else{
+					conteneur.appendChild(canvas);
+					conteneur.appendChild(label);
+					pair = true;
+					console.log(pair);
+					
+				}
+				
+				parent.appendChild(conteneur);
+				parent.appendChild(document.createElement('br'));
+				
+				canvas.width = annotation["width"] * WIDTH * 0.36290; //900/2480 ImageAnnotation/ImageTailleReelle
+				canvas.height = annotation["height"] * HEIGHT *0.31347; // 1100/3509 idem, c'est pour resize le resultat
+				canvas.style.border = "1px solid black";
+				var context = canvas.getContext('2d');
+				
+				context.drawImage(searchExistImg(annotation["src"]), annotation["x"]*WIDTH, annotation["y"] *HEIGHT, annotation["width"]*WIDTH, annotation["height"] *HEIGHT, 0, 0, canvas.width, canvas.height);
+
+				//imagePieces.push(canvas.toDataUrl("images/jpg"));
+				//canvas.style.margin = "8px";
+
+			// imagePieces now contains data urls of all the pieces of the image
+
+			// load one piece onto the page
+
+			}
+     });*/
+   	
+   	</script> 

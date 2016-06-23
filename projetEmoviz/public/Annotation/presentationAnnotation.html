@@ -1,0 +1,166 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	
+		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Optional Bootstrap theme -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Présentation du projet annotation</title>
+
+<script>
+	var CheminComplet = document.location.href;
+	var count = 0;
+	var pos = CheminComplet.indexOf('/');
+
+	while (pos !== -1 && count != 2) {
+		
+		count++;
+		pos = CheminComplet.indexOf('/', pos + 1);
+	}
+	
+	var path = CheminComplet.substring(0, pos+1 );
+	function lienAnnotation(dossier){
+		window.location.href = path + "image/general/"+dossier +"/"+ document.getElementById("monPseudo").value;
+	}
+</script>
+<div class="container theme-showcase ">
+<div class="col-xs-12 col-sm-6 col-md-8">
+	<h2><u >EMOVIZ : Un outil d’annotations émotionnelles pour les étudiants à distance</u></h2>
+	
+	<p>Le projet <strong>EMOVIZ</strong> réunit des chercheurs en Informatique et en Psychologie. Le projet vise à développer de nouveaux <strong>outils informatiques pour l’apprentissage à distance</strong>. Le caractère novateur de ces outils réside dans la <strong>prise en compte de l’état affectif des apprenants.</strong></br>
+Dans le cadre de cette dernière période du cours d’Introduction à la Psychologie, nous allons vous proposer d’utiliser l’un des derniers outils que nous venons de créer : un <strong>outil d’annotations émotionnelles</strong>.</br>
+Il s’agit d’un <strong>tout premier prototype</strong> que nous souhaitons améliorer sur la base des retours de ses utilisateurs.</br>
+Comme cet outil s’adresse aux étudiants à distance, nous avons pensé à vous : <strong>vous allez être les premiers utilisateurs de cet outil !</strong> Votre aide nous est très précieuse. <strong>Dans une première phase</strong>, nous vous inviterons à utiliser l’outil. Les données collectées nous permettront de comprendre comment vous vous êtes appropriés l’outil. <strong>Dans une deuxième phase</strong> (à la fin de cette dernière période à distance, avant les révisions), nous vous inviterons à remplir un court questionnaire sur vos impressions concernant l’outil.</p> </br>
+	
+	<p><u><strong>Que va vous permettre l’outil ?</u></strong>
+
+En bas de cette page de présentation,après avoir indiqué votre nom,  vous avez accès à deux ressources liées à la période 5 (si la ressource n'apparaît pas après avoir cliqué sur son lien, veuillez SVP cliquer sur le bouton "Rafraîchir la page" tout en haut à gauche) :</br>
+<ol>
+	<li>L’article d’Anne-Marie <strong>Melot</strong> (2001) sur la représentation de l’esprit chez l’enfant. Vous aborderez cet article dans le cadre du thème 1 (la pensée et les représentations mentales) après avoir lu le chapitre 7 de votre ouvrage de référence.</li>
+
+<li>L’article de <strong>Sodian et collaborateurs</strong> (1999) sur lequel votre devoir 5 portera. Vous accéderez à l’une ou l’autre de ces ressources <strong>en cliquant sur le lien correspondant après avoir rentré votre nom.</strong> </br></br>
+En cliquant sur le lien, la ressource apparaît à l'écran. Tout en haut à gauche, à coté du bouton "rafraîchir la page", vous avez deux boutons : (1) le bouton "version perso et (2) le bouton "version classe". Vous cliquerez sur le bouton "version perso" pour accéder à la version du document sur laquelle vous pourrez travailler et faire vos annotations personnelles. Vous cliquerez sur le bouton "version classe" pour visualiser les annotations (commentaire écrits et émoticônes) produites par l'ensemble de la classe.
+</br>
+</br>
+Une fois que vous avez cliqué sur le bouton "version perso", <strong>l'outil vous propose les fonctionnalités suivantes </strong>:
+	<ul>
+		<li> <strong>Sélectionner du texte.</strong> Cela peut être un mot, un groupe de mots, une phrase, un groupe de phrases, un paragraphe, plusieurs paragraphes, etc. (c’est comme vous voulez). Vous cliquerez en haut à gauche de l’endroit que vous voulez sélectionner, puis vous maintiendrez la souris enfoncée jusqu’à ce que tout soit sélectionné.</li> 
+		<li><strong>A chaque portion de texte sélectionnée, lui associer un commentaire écrit et une ou plusieurs émoticônes</strong> Lorsque vous avez sélectionné la portion du texte souhaitée, plusieurs fonctionnalités vous sont offertes :
+		<ul>
+			<li><strong>Rédiger un commentaire.</strong> Ce commentaire peut être un résumé, une reformulation ou encore une réflexion personnelle sur le contenu du texte que vous avez sélectionné (point pertinent et/ou important à retenir ; information qui vous intéresse ; une information utile pour la compréhension ; information difficile à comprendre et qui vous bloque ; etc). Enfin, ce commentaire peut décrire ce que vous ressentez à la lecture de la portion de texte sélectionnée, et viendra donc en complément de l’émotion sur laquelle vous aurez cliqué.
+			</li>
+			<li><strong>Sélectionner une ou plusieurs émoticônes.</strong> Nous vous proposons une liste de 8 émoticônes correspondant à 8 émotions qui sont reconnues comme étant fréquemment ressenties lors d’une activité d’apprentissage, à savoir : (1) le plaisir, (2) l’anxiété, (3) la curiosité, (4) l’ennui, (5) l’engagement, (6) la confusion, (7) la surprise, et (8) la frustration. Vous retrouvez ces émotions dans le tableau ci-dessous avec leur définition et leur émoticône correspondantes. <strong>Nous avons déposé ce tableau également dans l’espace Moodle de la période 5 du cours d’introduction à la Psychologie : nous vous conseillons d’imprimer ce tableau, et de vous familiariser avec les émotions proposées, leurs définitions et leurs émoticônes.</strong>. Votre tâche est de sélectionner parmi les 8 émoticônes proposées celles qui correspondent aux émotions que vous ressentez en lien avec la portion de texte que vous avez sélectionnée. Vous êtes libre de sélectionner une ou plusieurs émoticônes pour une portion de texte sélectionnée, étant donné qu’il est fréquent de ressentir plusieurs émotions différentes de façon simultanée. N’hésitez pas à écrire dans votre commentaire quelques mots sur ces émotions ressenties (pourquoi vous les ressentez, quel(s) effet(s) ces émotions ont sur vous, dans quelle mesure ces émotions vous sont utiles, comment vous allez gérer et/ou utiliser ces émotions, etc.).
+			</li>
+		</ul>
+		</br>
+			Vous cliquerez sur le bouton "version classe" pour consulter les encadrés, leurs commentaires écrits et leurs émoticônes qui ont été produits par les autres étudiants de la classe. <strong>Il s'agit d'une version de consultation et non d'une version de travail</strong> (donc vous n'aurez pas la possibilité de modifier des encadrés dans cette version). Pour consulter les commentaires écrits et émoticônes associées il suffit de passer le curseur de la souris sur les encadrés correspondants; vous pourrez constater que vos propres émoticônes apparaîtront entourées d'un trait bleu.
+		</li>
+	</ul>
+	</p>
+	
+	<p></br>
+		<strong><u>Bon à savoir </u></strong>: </br>
+		<ul>
+			<li>De nouveau, si la ressource n'apparaît pas après avoir cliqué sur son lien, veuillez SVP cliquer sur le bouton "Rafraîchir la page" tout en haut à gauche</li>
+			<li>Une fois que vous avez sélectionné vos émoticônes et rédigé votre commentaire, n’oubliez pas de cliquer sur <strong>« Save »</strong> pour sauvegarder le tout. Vous pourrez également relire votre commentaire et également revoir vos émoticônes en passant le curseur de la souris sur l'encadré.</li>
+			<li> Vous pouvez supprimer l’encadré que vous venez de sélectionner ainsi que son commentaire et l’émoticône associée en cliquant sur <strong>« Cancel »</strong>.</li>
+			
+	</p>
+	
+	<p>
+		<strong> 
+		Une fois que vous avez bien lu les consignes et lorsque vous vous sentez prêt(e), (1) indiquez votre nom (sans cela le système ne fonctionne pas) puis (2) cliquez sur la ressource que vous souhaitez étudier.</strong> Nous sommes conscients que pour certain(e)s d’entre vous, ce n’est pas facile de lire sur écran ; nous vous demandons de faire cet effort et vous aurez la possibilité de relire ensuite cette ressource sur papier. Nous vous demandons également d’éviter de prendre des notes sur papier pendant la lecture de la ressource : il s’agit d’utiliser un maximum l’outil d’annotations émotionnelles pour faire cette prise de note qui sera alors enrichie de vos émotions.
+	</p>
+	
+	<label>Veuillez indiquer votre nom : </label><input type="text" id = "monPseudo" ></input></br>
+	<ul>
+		
+		<li> <a href="javascript:lienAnnotation('ChapitreMelot')">Article de Melot (2001) </a></li>
+		<li > <a href="javascript:lienAnnotation('ChapitreSodian')">Article de Sodian et collaborateur (1999)</a></li>
+	 </ul> 
+	 <p>
+	 	Un tout grand merci de votre participation ! </br>
+	 	Gaëlle Molinari, Maxence Trannois, Elise Lavoué et Aurélien Tabard
+	 </p>
+	 <strong><u>Tableau 1</strong></u> : Les émotions, leurs définitions et leurs émoticônes </br>
+	 
+	 <p>
+	 
+	<table class="table table-bordered">
+		<thead>
+      <tr>
+        <th >Emotion</th>
+        <th >Définition</th>
+        <th >Emoticône</th>
+      </tr>
+    </thead>
+     <tbody>
+   		 <tr>
+        <td>Plaisir</td>
+        <td>Se sentir avoir atteint un haut degré de satisfaction</td>
+        <td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Plaisir.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Anxiété</td>
+       	<td>Se sentir nerveux, mal à l'aise, inquiet ou préoccupé</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Anxiete.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Curiosité</td>
+       	<td>Se sentir désireux d'en connaître plus ou d'apprendre plus en profondeur</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Curiosite.jpg"></img> </td>
+       </tr>
+       <tr>
+       	<td>Ennui</td>
+       	<td>Se sentir fatigué ou agité par manque d'intérêt</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Ennui.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Engagement  </td>
+       	<td>État d'intérêt qui résulte de l'implication dans la tâche</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Engagement.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Confusion</td>
+       	<td>Ressentir un manque de compréhension ou une incertitude quant à la façon de faire</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Confusion.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Surprise</td>
+       	<td>État d'étonnement surtout face à l'inattendu</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Surprise.jpg"></img> </td>
+       </tr>
+       
+       <tr>
+       	<td>Frustration</td>
+       	<td>Se sentir insatisfait ou gêné d'être "coincé"</td>
+       	<td> <img width ="100px" height ="100px" src ="/public/emoticone/emoticone_Frustration.jpg"></img> </td>
+       </tr>
+     </tbody>
+     
+     
+	
+	</table>
+	 </p>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
+

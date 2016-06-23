@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Erreur</title>
+<script>
+	var CheminComplet = document.location.href;
+	var count = 0;
+	var pos = CheminComplet.indexOf('/');
+
+	while (pos !== -1 && count != 2) {
+		
+		count++;
+		pos = CheminComplet.indexOf('/', pos + 1);
+	}
+	
+	var path = CheminComplet.substring(0, pos+1 );
+	function lienVisualisationStar(){
+		window.location.href = path + "visualisation/version02/"+ document.getElementById("monPseudo").value;
+	}
+	function lienVisualisationBarChartIndi(){
+		window.location.href = path+"visualisation/version07/"+ document.getElementById("monPseudo").value;
+	}
+</script>
+</head>
+<body>
+<div class="text">
+	<h1>Présentation des différentes visualisations</h1>
+	<label>Numero étudiant que vous voulez voir : </label>
+	</br>
+	<input type="text" id = "monPseudo" > (utile que pour la visualisation 2 et 7)</input>
+	<p>Voici une liste des différentes URL disponible : </p>
+	<p><a href="http://vps273360.ovh.net:8080/visualisation/version01/">Visualisation brut</a> <br />
+	<p><a href="javascript:lienVisualisationStar()">Visualisation star plot</a> <br />
+	<p><a href="http://vps273360.ovh.net:8080/visualisation/version03/">Visualisation barChart</a> <br />
+	<p><a href="http://vps273360.ovh.net:8080/visualisation/version04/">Visualisation moyenne</a> <br />
+	<p><a href="http://vps273360.ovh.net:8080/visualisation/version05/">Visualisation camembert awareness</a> <br />
+	<p><a href="http://vps273360.ovh.net:8080/visualisation/version06/">Visualisation camembert pekrun</a> <br />
+	<p><a href="javascript:lienVisualisationBarChartIndi()">Visualisation Barchart individuelle</a> <br />
+</p>
+</div>
+
+
+
+</body>
+</html>
+
+

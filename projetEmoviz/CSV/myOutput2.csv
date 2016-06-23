@@ -1,0 +1,155 @@
+IdUser ; nbreMess ; Jour ; BeginTime; endTime; Q1 ;  Q2  ;  Q3  ;  Q4  ;  Q5  ;  Q6_1 ;  Q6_2 ; Q6_3  ; Q6_4  ; Q6_5 ;  Q6_6 ; Q6_7  ;  Q6_8; Q6_9 ;  Q7  ;  Q8  ;  Q9 ; type
+0;1;2016-03-08T00:00:00.000Z;10:39:31;10:39:55;2;;2;3;5;0;0;2;0;3;0;null;null;null;4;2;6;computer
+0;2;2016-03-11T00:00:00.000Z;8:48:1;8:48:27;3;;2;4;3;0;2;0;4;0;0;0;0;0;2;3;5;computer
+0;3;2016-03-14T00:00:00.000Z;9:44:13;9:45:19;3;Je commence ma journée de travail;5;6;6;6;0;0;0;0;0;0;0;0;6;1;2;computer
+0;4;2016-03-15T00:00:00.000Z;9:13:14;9:13:50;3;Lire mes mails;5;4;6;0;0;0;0;6;4;0;0;0;2;2;1;computer
+1;1;2016-03-08T00:00:00.000Z;17:32:37;17:33:33;1;Une pause entre deux projets ;7;5;5;0;0;0;0;0;0;null;null;null;3;1;2;smartphone
+1;2;2016-03-14T00:00:00.000Z;9:12:46;9:13:39;1;Travail sur du shell;2;6;5;5;0;3;0;3;0;5;0;0;6;2;4;computer
+1;3;2016-03-15T00:00:00.000Z;14:43:46;14:44:31;1;Essai;2;3;3;0;2;0;0;0;0;3;0;0;3;3;2;smartphone
+2;1;2016-03-15T00:00:00.000Z;21:15:12;21:17:19;3;Je suis sur Titanpad pour compléter un travail de groupe dans le cadre du module de psychologie clinique. ;5;7;7;7;5;0;0;4;4;5;0;0;4;6;2;computer
+2;2;2016-03-16T00:00:00.000Z;22:26:50;22:28:26;3;Nous avons fait un skype pour une activité de psychologie clinique et de psychologie de l'éducation, ceci, avant la restitution de travaux de groupe.;6;6;6;7;5;0;0;0;2;0;0;0;6;6;6;computer
+2;3;2016-03-17T00:00:00.000Z;21:54:7;21:55:25;3;Je fais des résumés des textes à lire en psychologie clinique. ;5;5;5;6;0;0;2;0;0;0;0;0;1;4;4;computer
+2;4;2016-03-18T00:00:00.000Z;21:48:7;21:51:27;2;;2;6;2;0;6;0;0;0;2;0;0;0;1;1;1;computer
+2;5;2016-03-19T00:00:00.000Z;21:16:20;21:17:21;2;;2;7;2;0;6;0;0;0;0;0;0;0;1;6;4;computer
+2;6;2016-03-21T00:00:00.000Z;21:53:30;21:55:58;3;Je lis des articles en lien avec la psychologie clinique et fais des fiches de lecture pour résumer. ;5;6;6;7;5;0;0;0;0;5;0;0;2;2;2;computer
+2;7;2016-03-22T00:00:00.000Z;21:19:8;21:20:18;3;Je lis un article sur C. Rogers dans le cadre de la psychologie clinique. ;6;7;6;7;6;0;0;0;0;6;0;0;2;2;2;computer
+2;8;2016-03-23T00:00:00.000Z;22:27:53;22:29:9;3;Je lis un texte en psychologie clinique :  Le partenariat avec l'intervenant : vers une augmentation du sentiment d'efficacité de soi chez les parents. ;6;6;6;7;6;0;0;0;0;6;0;0;2;2;2;computer
+2;9;2016-03-24T00:00:00.000Z;21:24:57;21:25:48;2;;2;6;2;0;6;0;0;0;0;0;0;0;1;1;1;computer
+2;10;2016-03-26T00:00:00.000Z;21:36:45;21:38:33;3;Je lis un texte sur l'apprentissage dans le domaine du cognitivisme dans le module de psychologie de l'éducation. ;5;6;6;7;5;0;2;0;0;3;0;0;4;2;2;computer
+2;11;2016-03-27T00:00:00.000Z;1:5:30;1:6:48;1;;2;6;2;0;6;0;0;0;0;0;0;0;5;2;2;computer
+2;12;2016-03-28T00:00:00.000Z;21:24:48;21:26:1;3;Je lis un texte en psychologie de l'éducation sur la compréhension de texte et tente de répondre aux questions de la fiche de lecture. ;5;6;6;7;4;0;2;0;0;2;0;0;2;2;2;computer
+3;1;2016-03-16T00:00:00.000Z;9:1:32;9:3:1;3;Un travail de groupe sur le site gomaths;6;6;7;6;6;0;0;0;0;7;0;0;3;2;1;smartphone
+3;2;2016-03-17T00:00:00.000Z;9:6:41;9:8:4;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;3;2016-03-18T00:00:00.000Z;9:11:10;9:11:58;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;4;2016-03-19T00:00:00.000Z;16:47:8;16:47:15;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;5;2016-03-20T00:00:00.000Z;9:17:1;9:18:48;3;Description du domaine de travail du psychologue référant de stage;5;5;6;0;0;4;0;1;0;6;0;0;1;1;1;smartphone
+3;6;2016-03-21T00:00:00.000Z;14:10:56;14:11:6;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;7;2016-03-22T00:00:00.000Z;9:10:25;9:10:34;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;8;2016-03-23T00:00:00.000Z;9:5:42;9:6:51;3;Travail de bachelor et recherche approfondie du sujet de prisonization;2;6;5;5;5;0;0;0;0;7;0;0;1;1;1;smartphone
+3;9;2016-03-26T00:00:00.000Z;9:31:24;9:31:31;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+3;10;2016-03-29T00:00:00.000Z;9:1:46;9:3:31;3;Médecine comportementale: les troubles somatosensoriels.;3;6;6;0;4;0;1;0;0;6;0;0;1;1;0;smartphone
+4;1;2016-03-16T00:00:00.000Z;9:3:10;9:4:20;1;;4;6;7;0;0;0;0;0;5;0;0;0;2;2;2;computer
+4;2;2016-03-16T00:00:00.000Z;11:5:30;11:7:55;1;;6;3;5;4;0;0;0;5;0;5;0;0;2;1;1;computer
+4;3;2016-03-16T00:00:00.000Z;11:39:20;11:42:12;3;rédaction d'une liste de principes béhavioristes utilisées dans un logiciel d'aide aux maths. Psycho de l'éducation.;5;7;5;4;0;2;0;0;4;7;0;0;2;1;2;computer
+4;4;2016-03-16T00:00:00.000Z;11:46:31;11:52:24;3;Evaluer et corriger un texte dans le cadre d'un travail de groupe (mais action solitaire en ce moment).;5;7;6;6;2;2;1;3;4;4;0;0;4;2;2;computer
+4;5;2016-03-16T00:00:00.000Z;12:34:11;12:36:49;2;;4;4;5;6;4;4;7;7;7;7;0;2;7;5;2;computer
+4;6;2016-03-17T00:00:00.000Z;9:10:52;9:13:32;3;relire mes notes (synthèse de documents lus);7;7;7;7;5;0;0;0;0;6;0;2;2;1;1;computer
+4;7;2016-03-20T00:00:00.000Z;9:54:52;9:55:54;3;médecine comportementale : addiction à une substance ;4;6;6;6;0;0;0;0;0;6;0;0;3;1;1;computer
+4;8;2016-03-22T00:00:00.000Z;10:58:56;11:0:59;3;En train lire une lecture de psychologie de sociale. ;4;4;1;7;5;4;2;7;7;7;0;7;7;7;4;computer
+4;9;2016-03-25T00:00:00.000Z;17:1:3;17:1:9;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+5;1;2016-03-17T00:00:00.000Z;9:59:49;10:1:40;3;Finaliser le devoir de psychologie de l'éducation;4;5;5;5;0;0;0;0;2;0;0;0;5;2;1;computer
+5;2;2016-03-18T00:00:00.000Z;9:20:49;9:21:32;2;;7;2;2;0;0;0;4;0;0;0;0;0;3;1;1;computer
+5;3;2016-03-19T00:00:00.000Z;21:32:19;21:33:26;1;;7;1;1;0;5;0;0;0;0;6;0;0;1;1;1;smartphone
+5;4;2016-03-20T00:00:00.000Z;16:11:32;16:12:23;1;;6;2;4;0;5;0;0;0;0;0;0;0;1;1;1;smartphone
+5;5;2016-03-21T00:00:00.000Z;11:39:38;11:40:25;2;;6;3;3;0;0;0;5;3;0;0;0;0;2;1;1;computer
+5;6;2016-03-22T00:00:00.000Z;9:14:23;9:14:49;2;;7;1;4;0;0;0;0;0;0;0;0;0;4;4;4;computer
+5;7;2016-03-22T00:00:00.000Z;22:31:17;22:33:21;3;Organisation du travail de groupe en psychologie de l education;5;5;4;0;0;0;0;0;1;0;4;0;3;1;1;smartphone
+5;8;2016-03-25T00:00:00.000Z;19:44:32;19:45:24;1;;5;4;4;0;5;0;0;0;3;0;0;0;3;1;1;smartphone
+5;9;2016-03-27T00:00:00.000Z;18:26:12;18:27:9;1;;5;4;2;0;4;0;0;0;0;0;0;0;4;1;1;smartphone
+5;10;2016-03-28T00:00:00.000Z;13:18:23;13:19:32;3;Lectures en psychologie de l'éducation;4;4;5;5;0;0;0;0;3;5;0;0;4;1;1;computer
+5;11;2016-03-28T00:00:00.000Z;13:19:43;13:20:43;1;;5;5;3;0;5;0;0;0;0;5;0;0;2;1;1;computer
+5;12;2016-03-28T00:00:00.000Z;13:57:23;13:58:58;3;Lecture du cours de psychologie clinique;5;5;6;5;2;0;0;0;5;5;0;0;5;1;1;computer
+5;13;2016-03-29T00:00:00.000Z;9:27:5;9:27:55;1;;6;2;2;0;0;0;5;0;2;0;0;0;5;1;1;computer
+6;1;2016-03-17T00:00:00.000Z;11:25:33;11:30:55;2;Je suis au travail: je prépare un cours sur les procédures d'urgence et l'équipement  que je donne demain à des pilotes d'air tanker américains. ;7;7;7;7;6;1;1;1;2;7;4;5;1;1;1;smartphone
+7;1;2016-03-17T00:00:00.000Z;12:0:22;12:2:31;3;Je lis un texte concernant l'enseignement programmé et je réponds aux questions du guide de lecture;3;4;2;0;0;4;5;3;6;4;0;0;1;1;1;computer
+7;2;2016-03-18T00:00:00.000Z;9:7:25;9:8:54;3;Je lis un texte en psycho clinique qui porte sur le psychodiagnostic clinique et  je prends des notes;2;7;3;4;0;0;4;0;0;0;0;0;1;1;1;computer
+7;3;2016-03-19T00:00:00.000Z;13:13:12;13:15:49;2;Je suis en présentiel de l'unidistance;4;7;5;6;5;0;0;0;0;6;0;0;5;2;3;smartphone
+7;4;2016-03-20T00:00:00.000Z;13:11:31;13:11:48;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+7;5;2016-03-21T00:00:00.000Z;9:9:33;9:9:43;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+7;6;2016-03-22T00:00:00.000Z;11:45:30;11:46:38;3;Je lis un chapitre sur les teoubles liés aux substances;5;7;7;7;7;0;0;0;0;7;0;0;5;1;1;smartphone
+7;7;2016-03-23T00:00:00.000Z;9:45:41;9:45:49;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+7;8;2016-03-26T00:00:00.000Z;9:12:15;9:13:54;3;Je lis un texte concernant la communication non-verbale dans le cadre de la psychologie clinique;3;7;3;0;0;0;0;0;5;6;0;0;2;1;1;computer
+7;9;2016-03-27T00:00:00.000Z;10:58:21;10:58:28;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+7;10;2016-03-28T00:00:00.000Z;9:5:43;9:6:44;3;Je lis un texte sur la communication non-verbale et je prends des notes;2;4;2;0;0;7;7;5;0;0;0;0;4;1;1;computer
+8;1;2016-03-17T00:00:00.000Z;13:30:51;13:32:38;3;Je suis entrain de poster un devoir commun pour la psycho éduc. ;7;7;7;7;6;0;0;0;0;7;0;0;4;1;1;computer
+8;2;2016-03-18T00:00:00.000Z;13:39:12;13:42:0;3;Je suis entrain de relire un résumé d'article que j'ai fait pour la psycho sociale. C'est sur la communication informelle, Festinger.;3;7;7;6;2;1;0;0;4;7;0;0;1;1;1;computer
+8;3;2016-03-19T00:00:00.000Z;13:55:46;13:57:58;3;lecture d'un article de psychologie sociale: Le pouvoir social;3;7;4;3;0;1;0;0;5;7;0;0;1;1;1;computer
+8;4;2016-03-20T00:00:00.000Z;13:17:13;13:19:34;3;Poursuite de la lecture de psycho sociale sur le pouvoir social. ;4;7;6;3;0;2;0;1;2;7;0;0;1;1;1;computer
+8;5;2016-03-21T00:00:00.000Z;12:56:46;12:58:59;3;Je lis un article sur la conformité et la déviance en anglais pour le cours de psycho sociale.;2;7;6;0;0;6;0;6;5;5;0;2;1;1;1;computer
+8;6;2016-03-22T00:00:00.000Z;12:56:23;12:58:6;2;;0;0;0;0;0;6;0;6;5;5;0;0;1;1;1;computer
+8;7;2016-03-25T00:00:00.000Z;13:24:35;13:26:50;3;Je relis des notes des premiers modules pour faire une petite révision.;5;7;4;2;0;2;0;2;3;0;0;0;1;1;1;computer
+8;8;2016-03-26T00:00:00.000Z;22:10:35;22:11:28;1;;0;0;0;0;0;2;0;2;5;0;0;0;2;1;1;computer
+8;9;2016-03-28T00:00:00.000Z;12:26:10;12:27:34;3;Je lis les textes de psycho éduc concernant le courant cognitiviste;3;7;4;0;0;2;0;4;5;0;0;0;1;1;1;computer
+8;10;2016-03-29T00:00:00.000Z;18:52:24;18:52:56;1;;0;0;0;0;0;1;0;2;4;0;0;0;1;1;1;computer
+8;11;2016-03-30T00:00:00.000Z;11:41:28;11:42:57;3;Je résume un article pour psycho sociale . C'est sur les minorités;3;7;6;4;0;0;0;1;2;5;0;0;1;1;1;computer
+9;1;2016-03-17T00:00:00.000Z;17:14:2;17:14:49;2;;4;4;5;5;4;0;0;0;2;4;0;0;4;2;6;computer
+9;2;2016-03-18T00:00:00.000Z;17:18:39;17:19:47;2;;3;4;5;6;3;0;0;0;2;4;0;0;2;2;2;smartphone
+9;3;2016-03-20T00:00:00.000Z;18:53:19;18:53:57;2;;5;5;3;1;2;0;0;0;1;2;0;0;1;2;4;computer
+9;4;2016-03-21T00:00:00.000Z;17:44:1;17:50:22;3;- Consultation des tâches à accomplir pour le module de psychologie clinique - Impression des divers documents relatifs;6;5;5;5;1;0;1;0;1;6;0;0;2;1;3;computer
+9;5;2016-03-22T00:00:00.000Z;17:25:47;17:27:55;3;Lecture d'un texte dans le cadre du module de psychologie clinique.;4;4;5;4;1;0;1;0;1;3;0;0;3;1;4;computer
+9;6;2016-03-23T00:00:00.000Z;17:34:33;17:36:0;0;Lecture et résumé d'un texte de Corraze en psychologie clinique;2;5;3;3;1;0;1;0;1;3;0;0;1;1;3;computer
+9;7;2016-03-25T00:00:00.000Z;9:35:40;9:36:32;3;Lecture et résumé d'un texte en psychologie clinique;2;3;4;4;1;3;3;0;0;1;0;0;1;1;5;computer
+9;8;2016-03-25T00:00:00.000Z;9:35:9;9:36:50;3;Je lis un texte sur les troubles liés aux substances;4;7;7;7;6;0;0;0;0;6;0;0;5;1;1;computer
+9;9;2016-03-25T00:00:00.000Z;19:59:54;20:0:54;3;Lecture et résumé d'un texte de psychologie cognitive;2;1;4;2;1;0;6;0;0;1;0;0;1;1;4;computer
+9;10;2016-03-26T00:00:00.000Z;18:21:16;18:21:44;2;;2;2;0;0;3;0;1;0;0;2;0;0;1;1;2;computer
+9;11;2016-03-27T00:00:00.000Z;19:15:43;19:16:26;2;;3;3;2;1;1;0;0;0;1;2;0;0;2;1;3;smartphone
+9;12;2016-03-28T00:00:00.000Z;17:32:32;17:33:41;3;Lecture d'un texte de Rogers dans le cadre du module de psychologie clinique;2;2;5;3;1;0;5;0;0;1;0;0;1;2;1;computer
+10;1;2016-03-17T00:00:00.000Z;17:29:57;17:33:13;2;;4;4;3;6;7;7;3;3;5;2;0;3;7;3;2;computer
+10;2;2016-03-18T00:00:00.000Z;12:43:38;12:46:54;2;cer ap je veux lire les lectures de psychologie sociale ;5;4;4;6;7;5;2;7;6;7;0;3;7;4;4;computer
+10;3;2016-03-19T00:00:00.000Z;16:8:28;16:9:55;2;;3;3;6;5;7;4;4;6;5;6;0;4;7;5;7;computer
+10;4;2016-03-21T00:00:00.000Z;10:5:3;10:7:28;3;En train lire et résumer une lecture de cours de psychologie sociale.;2;5;5;5;7;5;2;3;7;7;0;1;7;2;1;computer
+10;5;2016-03-23T00:00:00.000Z;15:11:6;15:14:13;3;En train lire les articles de psychologie de l'éducation.;4;4;3;1;1;3;7;7;3;1;4;0;7;1;1;computer
+10;6;2016-03-24T00:00:00.000Z;13:17:42;13:20:42;2;J'ai lu des articles de psy sociale et clinique ce matin et dans quelques heures je vais lire les lectures de psy de l'éducation.;1;6;6;7;7;4;1;1;2;7;6;2;7;3;4;computer
+10;7;2016-03-26T00:00:00.000Z;22:36:3;22:36:10;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+10;8;2016-03-27T00:00:00.000Z;19:2:31;19:2:46;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+10;9;2016-03-28T00:00:00.000Z;18:56:13;18:56:21;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+11;1;2016-03-17T00:00:00.000Z;21:19:28;21:27:14;2;J'allais me coucher (rare à cette heure!) quand j'ai reçu le questionnaire, fatiguée, pense que je terminerai le travail à rendre demain assez tôt.;4;7;7;1;0;0;0;5;4;0;0;0;1;1;1;computer
+11;2;2016-03-18T00:00:00.000Z;23:28:21;23:30:51;3;Répondre à une question d'étudiante sur le forum de psy sociale.;5;6;6;7;4;3;0;0;0;0;0;0;1;1;1;computer
+11;3;2016-03-20T00:00:00.000Z;16:30:24;16:30:52;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+11;4;2016-03-20T00:00:00.000Z;21:17:17;21:20:15;2;Je tente de planifier ma semaine...;3;3;2;0;0;0;0;7;6;0;0;0;2;1;1;computer
+11;5;2016-03-21T00:00:00.000Z;22:6:35;22:7:15;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+11;6;2016-03-22T00:00:00.000Z;22:39:56;22:43:23;3;Je commence la lecture du thème 3 en psy de l'éducation;6;7;6;3;5;0;0;0;0;5;0;0;1;1;1;computer
+11;7;2016-03-23T00:00:00.000Z;21:49:56;21:55:49;3;Je réponds aux questions du guide de lecture en psychologie de l'éducation mais suis très distraite car jongle constamment avec les infos sur les attentats en Belgique, d'où ma frustration de ne pouvoir être à fond dans la découverte de cette matière.;4;7;4;2;4;4;0;6;4;5;0;0;5;1;1;computer
+11;8;2016-03-24T00:00:00.000Z;21:56:15;21:57:0;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;computer
+11;9;2016-03-25T00:00:00.000Z;21:19:7;21:21:11;3;Je réponds aux questions du guide de lecture 2 en psy de l'éducation.;2;3;1;1;0;4;0;5;0;0;0;0;1;1;1;computer
+11;10;2016-03-26T00:00:00.000Z;21:27:13;21:27:33;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+11;11;2016-03-27T00:00:00.000Z;23:6:2;23:27:39;3;Je lis un texte pour le psy clinique.;5;4;4;3;0;0;0;0;0;1;6;0;1;1;1;computer
+11;12;2016-03-28T00:00:00.000Z;23:4:27;23:5:56;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+11;13;2016-03-29T00:00:00.000Z;21:54:16;21:56:58;3;Lecture d'un texte pour le cours de psychologie clinique. ;3;4;3;0;2;7;0;2;5;0;0;0;7;7;7;smartphone
+11;14;2016-03-30T00:00:00.000Z;21:36:34;21:37:1;1;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+12;1;2016-03-18T00:00:00.000Z;9:31:39;9:34:31;3;Lecture et synthèse d'un document en psychologie clinique.;6;7;7;7;6;0;0;0;0;7;0;0;5;1;1;computer
+12;2;2016-03-20T00:00:00.000Z;21:22:49;21:24:36;3;recherches d'informations;5;7;7;6;4;3;0;6;0;6;0;0;5;3;2;computer
+12;3;2016-03-21T00:00:00.000Z;9:32:28;9:34:23;3;Synthèse d'un document en psychologie clinique;6;7;6;6;5;0;0;0;0;6;0;0;1;1;1;computer
+12;4;2016-03-22T00:00:00.000Z;18:4:51;18:8:9;3;Lecture d'un document portant sur la compréhension de textes (psycho éducation) - réponses aux questions du guide de lecture.;5;7;7;6;5;0;1;0;0;5;0;0;1;1;1;computer
+12;5;2016-03-24T00:00:00.000Z;22:14:34;22:17:36;3;Lecture et réponse guide de lecture d'un texte sur les modèles de l'apprentissage autorégulé;5;6;6;6;5;2;0;1;1;6;0;0;5;1;1;computer
+12;6;2016-03-25T00:00:00.000Z;15:28:1;15:29:59;3;Lecture et synthèse texte comportement non verbal en psychologie clinique;7;7;7;7;6;0;1;1;0;7;0;4;1;1;1;computer
+12;7;2016-03-27T00:00:00.000Z;22:57:44;23:0:26;1;Je me prépare à ne rien faire....;7;7;7;7;7;0;0;0;0;0;4;0;1;1;1;computer
+12;8;2016-03-28T00:00:00.000Z;20:5:35;20:8:26;3;Rédiger un devoir en psychologie clinique;5;6;7;7;6;3;0;0;3;7;0;0;6;1;1;computer
+12;9;2016-03-29T00:00:00.000Z;16:28:6;16:33:38;3;Travail en psycho de l'éducation : relever et lister les éléments spécifiques (liens entre émotions, motivation et apprentissage) et pertinents dans l'ensemble des documents de la période ;6;6;7;6;4;4;0;0;2;5;0;0;6;1;1;computer
+13;1;2016-03-18T00:00:00.000Z;11:1:30;11:3:47;2;;5;7;7;6;0;3;6;3;2;0;0;0;1;1;1;computer
+13;2;2016-03-20T00:00:00.000Z;6:37:42;6:41:32;3;Lire;7;7;5;5;4;0;2;0;2;4;0;0;2;2;1;smartphone
+13;3;2016-03-20T00:00:00.000Z;21:28:8;21:29:58;1;;3;3;1;6;2;4;1;7;7;7;0;1;7;2;1;computer
+13;4;2016-03-21T00:00:00.000Z;23:57:43;23:59:59;3;Lecture;6;7;5;5;4;0;2;0;2;2;0;0;2;2;1;computer
+13;5;2016-03-23T00:00:00.000Z;14:53:7;14:53:44;2;;0;0;0;0;0;5;0;5;6;0;0;0;1;1;1;computer
+13;6;2016-03-23T00:00:00.000Z;14:53:26;14:54:58;3;lectures;5;7;6;6;5;3;0;4;3;6;0;0;2;1;1;computer
+13;7;2016-03-23T00:00:00.000Z;21:36:20;21:38:9;3;Prise de notes points importants;4;6;7;6;5;3;2;0;0;5;0;0;3;1;1;computer
+13;8;2016-03-25T00:00:00.000Z;18:58:39;18:59:45;3;recherhce;4;7;5;4;4;0;3;3;3;0;0;0;3;3;3;computer
+13;9;2016-03-26T00:00:00.000Z;21:49:19;21:51:38;2;;7;7;7;5;7;0;0;0;0;7;0;0;3;1;1;smartphone
+13;10;2016-03-27T00:00:00.000Z;22:27:13;22:30:17;3;rapport;4;6;6;4;3;3;2;3;2;4;0;0;1;3;1;computer
+13;11;2016-03-29T00:00:00.000Z;1:18:16;1:19:32;3;résumer des informations;4;5;5;5;3;4;3;0;0;4;0;0;3;1;1;computer
+14;1;2016-03-18T00:00:00.000Z;12:26:13;12:27:21;3;schéma en psychologie clinique;3;5;7;6;0;0;0;3;0;0;0;0;5;4;4;computer
+14;2;2016-03-19T00:00:00.000Z;12:19:44;12:20:24;3;définition pour psychologie de l'éducation ;5;6;7;6;0;0;0;0;0;5;0;0;6;6;6;computer
+14;3;2016-03-21T00:00:00.000Z;9:4:18;9:5:11;3;médecine comportementale : étude de cas ;4;7;7;6;0;0;0;5;6;0;0;0;3;1;1;computer
+14;4;2016-03-22T00:00:00.000Z;9:8:26;9:9:18;3;psycho de l'éducation : lecture du guide de lecture;4;6;6;0;0;0;0;0;5;0;0;0;3;1;1;computer
+14;5;2016-03-23T00:00:00.000Z;9:20:10;9:20:39;2;;3;5;6;0;0;0;5;0;0;0;0;0;1;1;1;smartphone
+14;6;2016-03-25T00:00:00.000Z;9:23:6;9:24:35;3;Psycho clinique : lecture des consignes pour la periode;5;7;7;0;0;4;0;0;0;6;0;0;6;1;1;smartphone
+14;7;2016-03-25T00:00:00.000Z;9:21:31;9:29:10;3;je suis en train de lire un polycopié sur la communication non verbale.;4;7;7;6;6;0;0;0;0;7;0;3;5;2;2;computer
+15;1;2016-03-19T00:00:00.000Z;17:54:10;17:54:53;2;;5;5;5;5;4;0;0;0;1;5;0;0;5;4;4;smartphone
+15;2;2016-03-20T00:00:00.000Z;21:14:38;21:20:17;3;Je fais des résumés/ fiches de lecture pour la psychologie clinique. ;6;6;6;7;5;0;0;0;1;0;0;0;5;3;4;computer
+15;3;2016-03-20T00:00:00.000Z;21:23:44;21:27:15;3;Samedi : j'étais en cours et n'ai pas rempli durant le cours, mais me souviens de mon humeur. Cours de psychologie de l'éducation lors du travail de groupe.;5;6;6;6;4;0;0;4;0;5;0;0;4;2;4;computer
+16;1;2016-03-20T00:00:00.000Z;22:6:29;22:8:56;3;un résumé d'un chapitre;5;5;6;5;0;6;0;0;0;6;0;0;1;1;1;computer
+16;2;2016-03-20T00:00:00.000Z;22:10:22;22:12:4;3;recherches internet sur les travaux de Lang;4;4;5;0;6;0;0;0;0;5;0;0;1;1;1;computer
+17;1;2016-03-22T00:00:00.000Z;8:3:20;8:8:55;3;Je regarde qu'est ce que je dois faire pendant ce période, la lecture et des devoirs à rendre;4;7;6;6;6;0;0;0;0;7;0;0;3;3;2;smartphone
+17;2;2016-03-22T00:00:00.000Z;19:21:0;19:26:42;3;Je lis un article pour la psychologie clinique: Caractéristique générales dès communication non-verbales;4;2;2;2;1;0;3;0;0;2;0;1;5;1;1;smartphone
+17;3;2016-03-23T00:00:00.000Z;20:25:4;20:28:46;3;je lis l' article pour le cours la Psychologie de l'éducation : l'apprentissage dans une perspective cognitive;4;7;5;7;0;0;0;0;0;6;0;6;7;1;1;computer
+17;4;2016-03-25T00:00:00.000Z;8:54:34;8:58:58;3;Lecture d'un texte;3;5;2;4;0;0;2;0;0;0;0;0;6;1;1;smartphone
+17;5;2016-03-26T00:00:00.000Z;9:7:18;9:9:40;3;je me prépare pour devoirs;6;6;7;7;3;0;0;0;1;6;0;0;7;7;7;computer
+17;6;2016-03-27T00:00:00.000Z;9:25:32;9:27:17;3;Lis un article pour psychologie clinique;4;6;2;5;0;0;0;0;0;0;7;0;1;1;1;smartphone
+17;7;2016-03-28T00:00:00.000Z;15:40:35;15:42:59;3;travail du text Métacognition et croyances motivationnelles;6;6;6;7;6;0;0;0;0;6;0;0;5;1;1;computer
+17;8;2016-03-28T00:00:00.000Z;21:38:20;21:40:32;3;Création mind map;1;6;6;6;7;0;0;0;0;7;0;5;7;1;1;smartphone
+17;9;2016-03-29T00:00:00.000Z;19:46:8;19:48:23;3;Je fais de recherche pour mon devoir;6;7;7;6;4;0;0;0;0;5;0;5;4;2;2;smartphone
+17;10;2016-03-31T00:00:00.000Z;8:5:49;8:8:7;3;Devoir;5;6;7;7;2;4;0;0;0;6;0;4;7;7;7;smartphone
+18;1;2016-03-26T00:00:00.000Z;11:6:8;11:7:10;2;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smartphone
+18;2;2016-03-27T00:00:00.000Z;10:10:30;10:11:21;1;;5;5;6;5;5;0;0;0;0;0;0;0;6;4;2;smartphone
+18;3;2016-03-28T00:00:00.000Z;9:37:46;9:39:11;3;Je suis en train de faire mes résumés en vue des révisons pour les examens de juin.;6;7;7;6;5;0;0;0;0;0;0;0;5;2;2;smartphone
+18;4;2016-03-30T00:00:00.000Z;11:2:39;11:4:34;3;Résumer et repondre aux questions concernants la compréhension de texte en paychologie de l éducation;6;6;6;4;4;0;2;0;0;0;0;0;5;1;1;smartphone
