@@ -41,9 +41,9 @@
   jQuery.noConflict();
   $(function(){
   			
-    var iosocket = io.connect(); // connection au serveur
-    iosocket.emit('askInit',"Bonjour" ); // Récupere 
-    iosocket.emit('changePage', new Array("Perso",new Date(), NomDuFichier));// Envoi un message permettant de faire des traces de changement de page
+    var iosocket = io.connect(); // connect to the server
+    iosocket.emit('askInit',"Bonjour" ); // ask for init
+    iosocket.emit('changePage', new Array("Perso",new Date(), NomDuFichier));//send message to save a change of page
     
     //Init annotation
     iosocket.on('answerInit', function(rows){// catch the InitMessage from the serveur and initialize all the annotation on the page
@@ -64,9 +64,9 @@
 			
 		});
 		iosocket.on('deleteAnnotationClient', function(rows){// catch then a annotation is deleted (by another user)
-			anno.removeAnnotation(valueGlob[rows][0]);// enleve l'annotation
-			valueGlob[rows][1].parentNode.removeChild(valueGlob[rows][1]); // enleve l'affichage emotionnel
-			valueGlob.splice(rows, 1);// l'enleve du tableau
+			anno.removeAnnotation(listAnnotation[rows][0]);// delete the annotation from the page
+			listAnnotation[rows][1].parentNode.removeChild(listAnnotation[rows][1]); // delete vizualisation emotion (maybe it's useless now)
+			listAnnotation.splice(rows, 1);// delete the annotation from the table
 			
 		});
 		
@@ -84,11 +84,11 @@
      //////////////////////////////////////////////////////////////////
 		////////////////////////save annotation////////////////////////////
 		///////////////////////////////////////////////////////////////////
+		// Then the annotation is created, we save all the data, from the popUp, from the annotation on the DB and on the table
 		anno.addHandler('onAnnotationCreated', function(annotation, event) {
 			var parent = event.element.parentNode;
 			var temp = parent.getElementsByClassName("annotorious-editor");
 			var popUp = temp[0].getElementsByClassName("myPopUp");
-			//console.log(popUp);
 			var eachEmotion = popUp[0].getElementsByClassName("myImg");
 			var emotionRessenti = "";
 			for (var j = 0; j<eachEmotion.length; j++){
@@ -114,22 +114,20 @@
 				
 				var numberPage = (json.src).substring(json.src.length - 8, json.src.length -4 );
 				var parentByAnno = document.getElementById("anno" + parseInt(numberPage));
-				
-				/*var myValue = popDef(parentByAnno, json, eachEmotion, (parseInt(numberPage)-1)*HEIGHT);
-				//var myValue = popDef(parent, json, eachEmotion,0);
-				valueGlob.push(new Array(annotation,myValue));*/
+
 				
 				var entryValue = new Array();
 				entryValue.push(parentByAnno);
 				entryValue.push(json);
 				entryValue.push(strtok(emotionRessenti));
 				entryValue.push((parseInt(numberPage)-1)*HEIGHT);
-				valueGlob.push(new Array(annotation,entryValue));
+				listAnnotation.push(new Array(annotation,entryValue));
 				resetPopUp(temp[0].getElementsByClassName("myPopUp"));
 		});
 		/////////////////////////////////////////////////////////////////////////
 		///////////////////////////selection handler/////////////////////////////
 		/////////////////////////////////////////////////////////////////////////
+		// Add the emotion popUp. It allow the user to add his feeling(emotion)
 		anno.addHandler('onSelectionCompleted', function(event) {
 			
 			
@@ -144,6 +142,8 @@
 		/////////////////////////////////////////////////////////////////////////
 		///////////////////////////onMouseOver handler///////////////////////////
 		/////////////////////////////////////////////////////////////////////////
+		
+		// Display the feeling of the annotation, next to it. It remove the previous onMouseOver
 		anno.addHandler('onMouseOverAnnotation', function(annotation, event) {
 			
 			if (typeof annotation.C == "undefined"){
@@ -155,15 +155,14 @@
 					currentSelected.parentNode.removeChild(currentSelected);
 				var temp = findAnnotation(annotation.C);
 				
-				currentSelected = popDef(valueGlob[temp][1][0], valueGlob[temp][1][1], valueGlob[temp][1][2], valueGlob[temp][1][3]);
-				//console.log(currentSelected);
+				currentSelected = popDef(listAnnotation[temp][1][0], listAnnotation[temp][1][1], listAnnotation[temp][1][2], listAnnotation[temp][1][3]);
 			}
 		});
 		
 		/////////////////////////////////////////////////////////////////////////
 		///////////////////////////delete handler////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////
-		
+		// remove the annotation from the DB and the table
 		anno.addHandler('onAnnotationRemoved', function(annotation) {
 			var temp = findAnnotation(annotation);
 			var CheminComplet = document.location.href;
@@ -180,15 +179,14 @@
  								 
  			var tab = new Array(json,temp);
 				iosocket.emit('deleteAnnotationServeur',tab);
-				//console.log("hello");
-				//console.log(valueGlob[temp][1]);
-				//valueGlob[temp][1].parentNode.removeChild(valueGlob[temp][1]); // enleve l'affichage emotionnel
-				valueGlob.splice(temp, 1);
+				listAnnotation.splice(temp, 1);
 
 		});
 		/////////////////////////////////////////////////////////////////////////
 		///////////////////////////updated handler///////////////////////////////
 		/////////////////////////////////////////////////////////////////////////
+		
+		// Update the data with the new one. Change it on the DB and the table
 		anno.addHandler('onAnnotationUpdated', function(annotation) {
 			var pos = findAnnotation(annotation);
 			var json = { 
@@ -201,7 +199,7 @@
     								login : NomDuFichier
  								 };
  								 
- 				var tab = new Array(json,pos); // Necessaire pour renvoyer l'annotation a tout les utilisateurs
+ 				var tab = new Array(json,pos); // we need it for the other
 				iosocket.emit('changeAnnotationServeur',tab);
 
 		});
@@ -220,7 +218,7 @@
 	
 		
 			
-		
+		//function to change page
 		function changePageClasse(){
 			var blabla = CheminComplet.substring(0, listPos[listPos.length-3]+1 )+
 													"General"+
@@ -270,7 +268,7 @@
 				entryValue.push(entry);
 				entryValue.push(eachEmotion);
 				entryValue.push((parseInt(numberPage)-1)*HEIGHT);
-				valueGlob.push(new Array(myAnnotation,entryValue));
+				listAnnotation.push(new Array(myAnnotation,entryValue));
 			
 				anno.addAnnotation(myAnnotation);
 				}

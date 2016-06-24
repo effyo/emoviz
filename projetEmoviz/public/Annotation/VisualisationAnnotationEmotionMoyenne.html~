@@ -1,21 +1,20 @@
+<!-- not finish yet-->
+
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
     <meta name="description" content="">
     <meta name="author" content="">
     
 
     <title>Visualisation annotation pieChart </title>
 
-   	<!--
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-  	-->
+   	
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -23,16 +22,7 @@
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="/public/fichierJS/pieChart.js"> </script>
-    <!-- Custom styles for this template -->
-   <!-- <link href="theme.css" rel="stylesheet"> -->
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    
 		<script>
 	
 		$(function(){
@@ -43,18 +33,17 @@
 			
 			}
       var iosocket = io.connect();
-			iosocket.emit('askAnnotationAll',"hello");
-      iosocket.on('resultAnnotationAll', function(rows){
+			iosocket.emit('askAnnotationAll',"hello");// ask for init
+      iosocket.on('resultAnnotationAll', function(rows){//reveive init
       var nest = d3.nest()
 				.key(function(d) { return d.src; })
 				.entries(rows);
-				//console.log(nest);
 				
 			for (var eachDay = 0; eachDay<nest.length; eachDay++){
 				var temp = nest[eachDay]["values"];
 				for (var eachRow = 0; eachRow<temp.length; eachRow++){
 				
-					emotionCompteur(temp[eachRow]);
+					emotionCounter(temp[eachRow]);
 				
 				}
 				createPieChart(cptEmotion, document.getElementById("body1"));
@@ -62,7 +51,7 @@
 	
 		});  
 		
-		function emotionCompteur(annotation) {
+		function emotionCounter(annotation) {
 				
 				for (var i =0; i<listEmotion.length;i++){
 					if (annotation["emotion"].indexOf(listEmotion[i])){

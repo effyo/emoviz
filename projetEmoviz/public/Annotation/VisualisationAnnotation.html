@@ -36,21 +36,20 @@
 		<script>
 	
 		$(function(){
-			var WIDTH = 2480;//900; // taille réel du document
-			var HEIGHT = 3509;//1100; // taille reel du document
-			var WIDTHDOC = 900;
+			var WIDTH = 2480;//900; // size real of the document
+			var HEIGHT = 3509;//1100; // size real of the document. It could be better, by adding the size directly and not by force
+			var WIDTHDOC = 900; //size that we used to present the document on the framework
 			var HEIGHTDOC = 1100;
 			var pair = false;
 			var tableImg = new Array();
 			var CheminComplet = document.location.href;
-			var NomDuFichier = CheminComplet.substring(CheminComplet.lastIndexOf( "/" )+1 );// nom de l'utilisateur
+			var NomDuFichier = CheminComplet.substring(CheminComplet.lastIndexOf( "/" )+1 );// name of the user
       var iosocket = io.connect();
-			iosocket.emit('askAnnotation',NomDuFichier); // On demande les annotations relatif à un nom
-      iosocket.on('resultAnnotation', function(rows){ // On recupère les données
+			iosocket.emit('askAnnotation',NomDuFichier); // ask data link to a pseudonyme
+      iosocket.on('resultAnnotation', function(rows){ //receive data
       var nest = d3.nest()
 				.key(function(d) { return d.time; })
-				.entries(rows);// on tri en fonction du temps (sa pourrait être en fonction de la page)
-				//console.log(nest);
+				.entries(rows);//we filter by the time, we could filter by other thing, like document.
 				
 			for (var eachDay = 0; eachDay<nest.length; eachDay++){
 				var temp = nest[eachDay]["values"];
@@ -61,7 +60,7 @@
 			}
 	
 		});  
-		//fonction de création d'image. On alloue de la mémoire si l'image n'est pas déjà existante. temps -- mais mémoire ++
+		//function to create memory for picture. If the picture is already present, then nothing, else add.
 		function searchExistImg(src){
 			for (var i =0; i<tableImg.length;i++){
 				if (tableImg[i].src == src ){
@@ -77,7 +76,7 @@
 		
 		} 
 		
-		//fonction qui va créer le cadre + le texte correspondant. Il prend en entrée une des annotations reçu du serveur
+		//function who cut the picture to take exactly the piece of picture surrounded and add the text annotate
 		function cutImageUp(annotation) {
 				
 				var parent = document.getElementById("body1");
@@ -89,7 +88,7 @@
 				label.innerHTML = annotation["text"] + "\n"+ annotation["emotion"];
 				conteneur.appendChild(canvas);
 				conteneur.appendChild(document.createElement('br'));
-					conteneur.appendChild(label);
+				conteneur.appendChild(label);
 				if(pair){
 					
 					pair = false;

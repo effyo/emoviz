@@ -134,7 +134,7 @@ socketio.listen(server).on('connection', function (socket) {
 							var nbreponse = 1;
 							if (rows2.length != 0) nbreponse = rows2[0].numb + 1;
 							
-							//function to save the data from the Questionnaire
+							//fonction qui enregistre les données venant du questionnaire
 							connection.query(
 								'insert into Questionnaire (Q1,Q2,Q3,Q4,Q5,Q6_1,Q6_2,Q6_3,Q6_4,Q6_5,Q6_6,Q6_7,Q6_8,Q6_9,Q7,Q8,Q9,IDNom,NBReponse,day,beginTime,endTime,type,URL) values ("' + 
 								 msg.Q1 + '", "' + 
@@ -166,7 +166,7 @@ socketio.listen(server).on('connection', function (socket) {
 		  			});
 		  	});
 		  	});
-		  	// function to ask the data from the DB
+		  	// fonction de récupération des données :
 		  	socket.on('serverMessage', function ( response) {
 		  		if (response =="Bonjour"){
 						connection.query('SELECT * FROM Questionnaire',function(err,rows){
@@ -180,7 +180,7 @@ socketio.listen(server).on('connection', function (socket) {
 		  	//ANNOTATION
 		  	
 		  	
-		  	// FInd all the annotation according to the login ( personnal version)
+		  	// Recherche toutes les annotations en relation avec une personne (version perso)
 		  	socket.on('askAnnotation', function (data){
 		  		connection.query('SELECT * FROM Annotation where login=\"' + data +'\";' ,function(err,rows){
 							if(err) throw err;
@@ -189,7 +189,7 @@ socketio.listen(server).on('connection', function (socket) {
 		  	
 		  	});
 		  	
-		  	//Find all the annotation (classroom version)
+		  	// Recherche toutes les annotations (version classe)
 		  	socket.on('askAnnotationAll', function (data){
 		  		connection.query('SELECT * FROM Annotation ;' ,function(err,rows){
 							if(err) throw err;
@@ -198,7 +198,7 @@ socketio.listen(server).on('connection', function (socket) {
 		  	
 		  	});
 		  	
-		  	// Save trace, then we go to the perso or class page
+		  	// Enregistre les traces de changement de page, pour faire des analyses
 		  	socket.on('changePage', function (data){
 					connection.query(
 						'insert into changePage (direction,date,login) values ("' + 
@@ -211,7 +211,7 @@ socketio.listen(server).on('connection', function (socket) {
 		  	
 		  	});
 		  	
-		  	//add an annotation in the DB
+		  	//Rajoute une nouvelle annotation
 		  	socket.on('annotationMessageServeur', function ( response) {
 		  	
 					connection.query(
@@ -227,10 +227,10 @@ socketio.listen(server).on('connection', function (socket) {
 								 response.time +
 								 '")'
 				 			);
-				 		socket.broadcast.emit('annotationMessageClient', response);//send to all the user the new annotation
+				 		socket.broadcast.emit('annotationMessageClient', response);// envoi au utilisateur la nouvelle annotation, pour qu'il la rajoute
 		  	});
 		  	
-		  	// delete an annotation
+		  	// Supprime une annotation
 		  	socket.on('deleteAnnotationServeur', function ( response) {
 		  		
 					connection.query('DELETE from Annotation where Annotation.text = "'+response[0].text+ '"'+
@@ -241,11 +241,11 @@ socketio.listen(server).on('connection', function (socket) {
 					' AND Annotation.y = "'+ response[0].y + '"'
 					
 					);
-				 		socket.broadcast.emit('deleteAnnotationClient', response[1]);// said to the client to delete the annotation
+				 		socket.broadcast.emit('deleteAnnotationClient', response[1]);// Indique aux autres utilisateurs qu'il faut supprimer l'annotation
 		  	});
 		  	
 		  	
-		  	//modify an annotation
+		  	//Change une annotation
 		  	socket.on('changeAnnotationServeur', function ( response) {
 					
 					
@@ -258,16 +258,16 @@ socketio.listen(server).on('connection', function (socket) {
 						' AND Annotation.y = \"'+ response[0].y + '\" ;'
 					
 						);
-						var data = new Array(response[1], response[0].text); // create a data with the new and the previous annotation
-					socket.broadcast.emit('changeAnnotationClient', data);// to change the annotation to all the user 
+						var data = new Array(response[1], response[0].text); // Recréer une valeur necessaire pour changer l'annotation.
+					socket.broadcast.emit('changeAnnotationClient', data);// demande a changer l'annotation 
 					
 		  		
 					
 				 		
 		  	});
 		  	
-		  	// ask the server all the annotation for init (useless, already one)
 		  	
+		  	// On demande au serveur tout les annotations pour initialiser la page (fait la meme chose que la fonction plus haut, a changer ! 
 		  	socket.on('askInit', function (response){
 		  		connection.query('select * from Annotation', function(err,rows){
 		  			if (err) throw err;
@@ -275,9 +275,9 @@ socketio.listen(server).on('connection', function (socket) {
 		  			//console.log("init");
 		  		});  		
 		  	});
-		  	// function to create a CSV, from the questionnaire's data
+		  	
 		  	//Fonction créer pour faire un fichier CSV directement des réponses au questionnaire
-				// funtion old : necessity to redo if we want a good csv
+				// Fonction old : a refaire pour correspondre au besoin
 		  	/*
 		  	socket.on('serverNest', function ( response) {
 					createCSV(response);
@@ -288,8 +288,8 @@ socketio.listen(server).on('connection', function (socket) {
     	
 });
 
-    	// really ugly, redo
-    	/* function Plotly, created for fun
+    	// vraiment moche, a refaire
+    	/* Fonction Plotly, créer pour s'amuser
     	function sendGraphics(nest, socket){
     		
     		
@@ -375,7 +375,7 @@ socketio.listen(server).on('connection', function (socket) {
     		}); 	
     	};
  	}*/
- 			// function call by the function to create CSV
+ 			// fichier CSV créer directement lors de l'accès sur une page.
     	function createCSV(nest){
 				var wstream = fs.createWriteStream('myOutput.txt');
 				wstream.write("NomUser ; IdUser ; nbreMess ; Jour ; BeginTime; endTime; Q1 ;  Q2  ;  Q3  ;  Q4  ;  Q5  ;  Q6_1 ;  Q6_2 ; Q6_3  ; Q6_4  ; Q6_5 ;  Q6_6 ; Q6_7  ;  Q6_8; Q6_9 ;  Q7  ;  Q8  ;  Q9 ; type;\n");

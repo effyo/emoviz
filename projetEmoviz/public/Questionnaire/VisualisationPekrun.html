@@ -61,13 +61,13 @@
 		$(function(){
 						
             var iosocket = io.connect();
-						iosocket.emit('serverMessage',"Bonjour" );
-            iosocket.on('bddMess', function(rows){
+						iosocket.emit('serverMessage',"Bonjour" ); // ask for init
+            iosocket.on('bddMess', function(rows){// receive data for init
             var nest = d3.nest()
 							.key(function(d) { return d.Day; })
 							.entries(rows);
 									
-							//InitColor
+							//InitColor for different color on our pieChart
 							color = d3.scale.category20c();
 							var myColor = document.getElementById('color');
 							for (var i = 0; i<8;i++){
@@ -78,21 +78,20 @@
 							}
 							
 							var result = document.getElementById('body');
-					  	var myTable = document.createElement("table");// creation de la table
+					  	var myTable = document.createElement("table");// we will put our piechart on each case of the table. 4 column and eachDay row
 		  				InitTab(myTable); // on rajoute les entetes
-		  				var tbody = document.createElement("tbody");// Endroit où l'on va rajouté nos données
+		  				var tbody = document.createElement("tbody");// place where our data are
     				
-						for (var eachRow = 3; eachRow<nest.length; eachRow++){// boucle pour avoir chaque jour. Mis a 3 pour enlever des données, ne pas oublier de le remettre a 0
-							//var currentRow = nest[eachRow]["values"];
+						for (var eachRow = 3; eachRow<nest.length; eachRow++){// loop for to process on a daily data
 							createOneLine(nest[eachRow]["values"],eachRow,tbody);
 						}
 							myTable.appendChild(tbody);
 		 					result.appendChild(myTable);
 					});   
         });
-    function InitTab(table){
+    function InitTab(table){ 
     	var myThead = document.createElement("thead");
-    	var tabTemp = new Array("Date ainsi que plein de blabla pour espace","maitrise", "utilité", "activité");// premier element vide pour mettre la date dans la colonne de gauche
+    	var tabTemp = new Array("Date ainsi que plein de blabla pour espace","maitrise", "utilité", "activité");// first row is long to formatate the column for the day // like we said, 4 column
     	for (i=0; i<4; i++){
   				var temp = document.createElement("th");
 	 				temp.innerHTML = tabTemp[i];
@@ -124,7 +123,7 @@
 			var date = currentRow[0]["Day"].substring(0,10);
 			//Loop on the number of message
 			for (var eachLogin =0; eachLogin<currentRow.length; eachLogin++){ 
-			//Loop to add each emotion
+			//Loop to add each question of pekrun
 					if (currentRow[eachLogin]["Q1"] == 3){
 						var valueQ3 = currentRow[eachLogin]["Q3"];
 						var valueQ4 = currentRow[eachLogin]["Q4"];
@@ -135,7 +134,7 @@
 					}
 			}
 			
-			
+			// a little bit ugly, maybe need a refactoring
 			var chart1 = document.createElement("td");
 			chart1.id = "chart1";
 			var chart2 = document.createElement("td");

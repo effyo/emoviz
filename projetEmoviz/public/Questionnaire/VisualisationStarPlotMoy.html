@@ -11,12 +11,6 @@
 
     <title>Visualisation with starPlot </title>
 
-   	<!--
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-  	-->
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -28,15 +22,7 @@
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		
-    <!-- Custom styles for this template -->
-   <!-- <link href="theme.css" rel="stylesheet"> -->
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
      <body role="document" >
 
 		
@@ -46,15 +32,15 @@
 		$(function(){
 						
             var iosocket = io.connect();
-						iosocket.emit('serverMessage',"Bonjour" );
-            iosocket.on('bddMess', function(rows){
+						iosocket.emit('serverMessage',"Bonjour" );//ask for init
+            iosocket.on('bddMess', function(rows){//receive init
             var nest = d3.nest()
 							.key(function(d) { return d.Day; })
 							.entries(rows);
 						
 						
 						////////////////////////////////////////////////////////////
-						var nest2 = d3.nest()// pour connaitre le nombre de participant
+						var nest2 = d3.nest()// useful only to know the number of student
 							.key(function(d) { return d.IDNom; })
 							.entries(rows);
 							
@@ -69,7 +55,7 @@
 						}
 					  
     				
-						for (var eachRow = 3; eachRow<nest.length; eachRow++){// boucle pour avoir chaque jour. Mis a 3 pour enlever des données, ne pas oublier de le remettre a 0
+						for (var eachRow = 3; eachRow<nest.length; eachRow++){//loop for eachDay . Initialize at 3 to drop some old data
 							//var currentRow = nest[eachRow]["values"];
 							createOneLine(nest[eachRow]["values"],nest2.length,dataAveTot,cptZero);
 						}
@@ -117,10 +103,6 @@
 							dataMoy[eachEmotion][1]++;// cpt
 							cptZero[eachEmotion]++;
 						}
-						/*else if (valeurCour != 0){
-							cptZero[eachEmotion]++;
-						
-						}*/
 				}	
 			}
 			
@@ -138,7 +120,7 @@
 			
 
 		}
-		function initRadar2(cptZero){
+		function initRadar2(cptZero){ // visualize the number of time the emotion was feel
 				var tabTemp = new Array("Plaisir", "Anxiété", "Curiosité", "Ennui", "Engagement", "Confusion", "Surprise", "Frustration", "Neutre");
 				var LegendOptions = new Array();
 				

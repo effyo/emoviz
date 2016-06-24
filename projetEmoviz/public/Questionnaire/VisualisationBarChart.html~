@@ -84,15 +84,15 @@
 		$(function(){
 						
             var iosocket = io.connect();
-						iosocket.emit('serverMessage',"Bonjour" );//ask data
-            iosocket.on('bddMess', function(rows){// receive data
+						iosocket.emit('serverMessage',"Bonjour" );
+            iosocket.on('bddMess', function(rows){//Demande de données au serveur
 		          var nest = d3.nest()
 								.key(function(d) { return d.Day; })
 								.entries(rows);
 						
 						
 							////////////////////////////////////////////////////////////
-							var nest2 = d3.nest()//used to know the number of student
+							var nest2 = d3.nest()// pour connaitre le nombre de participant
 								.key(function(d) { return d.IDNom; })
 								.entries(rows);
 
@@ -100,11 +100,11 @@
 	
 	
 							var result = document.getElementById('body');
-							var myTable = document.createElement("table");
-		  				InitTab(myTable); 
-		  				var tbody = document.createElement("tbody");
+							var myTable = document.createElement("table");// creation de la table
+		  				InitTab(myTable); // on rajoute les entetes
+		  				var tbody = document.createElement("tbody");// Endroit où l'on va rajouté nos données
 		  				
-							for (var eachRow = 3; eachRow<nest.length; eachRow++){//loop on day, init at 3 to avoid data. Put it at 0 if the data is corresponding to the expe
+							for (var eachRow = 3; eachRow<nest.length; eachRow++){// boucle pour avoir chaque jour. Mis a 3 pour enlever des données, ne pas oublier de le remettre a 0
 								createOneLine(tbody,nest[eachRow]["values"],nest2.length);
 							}
 							myTable.appendChild(tbody);
@@ -115,7 +115,7 @@
         
     function InitTab(table){
     	var myThead = document.createElement("thead");
-    	var tabTemp = new Array("","Plaisir", "Anxiété", "Curiosité", "Ennui", "Engagement", "Confusion", "Surprise", "Frustration", "Neutre");// first element void to put date
+    	var tabTemp = new Array("","Plaisir", "Anxiété", "Curiosité", "Ennui", "Engagement", "Confusion", "Surprise", "Frustration", "Neutre");// premier element vide pour mettre la date dans la colonne de gauche
     	for (i=0; i<10; i++){
   				var temp = document.createElement("th");
 	 				temp.innerHTML = tabTemp[i];
@@ -127,9 +127,9 @@
     
     
     function createGraph(tbody,data,sizeUser,date,dataMoy){
-    var sizeEmotion = 120+20;// +20 for scale
+    var sizeEmotion = 120+20;// +20 pour echelle
 			var w = (sizeEmotion+8) ;
-			var realH = 100+30;//scale
+			var realH = 100+30;//+20 pour que l échelle soit visible
 			var h = 100 ; 
     	var rowTable = document.createElement("tr");
     	var dateTd = document.createElement("td");
@@ -147,7 +147,11 @@
     	var widthScale= d3.scale.linear()
 				.domain([0,sizeUser])
 				.range([0,sizeEmotion-20]);
-
+    	
+    	/*var axisL=d3.svg.axis()
+				.ticks(1)
+				.scale(heightScale)
+				.orient("left");*/
 				
 				
 			
@@ -167,7 +171,8 @@
 					 .attr("x", function(d, i) {
 							return 20 + (i * (sizeEmotion-20) / sizeUser) ;})
 					 .attr("y", function(d, i) {
-					 		return h - d*h/7;//height minus value
+					 		return h - d*h/7;// Hauteur moins la valeur de la donnée
+							  
 						})
 					 .attr("width", (sizeEmotion-20)/ sizeUser)
 					 .attr("height", function(d) {
@@ -178,13 +183,15 @@
 							return "User: " + (i+1);
 						})
 						.attr("fill", function(d,i) {
-							return colorMyGraph(i);
+							//var value = Math.round((i%sizeUser)/sizeUser*255);
+							return colorMyGraph(i);//"rgb(150" +","+ value + ", " + value + ")";// changement de couleur par rapport a l'intensité
+							//return "rgb(53, 122, 183)";
 						});
 						
 						// ligne représentant la moyenne
 						var ligne = svg.append('line')
 						.attr({
-							x1: 20,// scale
+							x1: 20,// a cause de l'échelle
 							y1: h - h*dataMoy[i]/7,
 							x2: sizeEmotion,
 							y2: h - h*dataMoy[i]/7 ,
@@ -194,7 +201,7 @@
 						for (var j=0; j<9; j++){
 							var ligne = svg.append('line')
 								.attr({
-									x1: 20,// scale
+									x1: 20,// a cause de l'échelle
 									y1: h - h*j/7,
 									x2: sizeEmotion,
 									y2: h - h*j/7 ,
@@ -240,6 +247,7 @@
     }
     // dataParsing
 		function createOneLine(tbody,currentRow,sizeUser){
+			console.log(currentRow);
 			//init data
 			var tabVisu = new Array(sizeUser * 9);
 			for (var j=0; j< sizeUser *9; j++){

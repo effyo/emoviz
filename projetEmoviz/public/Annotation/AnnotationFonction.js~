@@ -164,6 +164,7 @@
 			return -1;
 		
 		}
+		// Reset le contour du pop up, necessaire pour éviter d'avoir un cadre lorsque l'on crée une nouvelle annotation
 		function resetPopUp(myPopUp){
 			var elementChildren = myPopUp[0].children;
 			for (var i = 0; i < elementChildren.length; i++) {
@@ -203,7 +204,7 @@
 			
 			}
 		}
-		
+		//bouton refresh (rien de grandiose)
 		function refresh(){
 			document.location.reload();
 		}	

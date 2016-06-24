@@ -23,7 +23,7 @@
 		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-		<script src="/public/RadarChart.js"> </script>
+		<script src="/public/fichierJS/RadarChart.js"> </script>
 		
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
@@ -46,15 +46,15 @@
 		$(function(){
 						
             var iosocket = io.connect();
-						iosocket.emit('serverMessage',"Bonjour" );
-            iosocket.on('bddMess', function(rows){
+						iosocket.emit('serverMessage',"Bonjour" );//ask for init
+            iosocket.on('bddMess', function(rows){//receive init
             var nest = d3.nest()
 							.key(function(d) { return d.Day; })
 							.entries(rows);
 						
 						
 						////////////////////////////////////////////////////////////
-						var nest2 = d3.nest()// pour connaitre le nombre de participant
+						var nest2 = d3.nest()// useful only to know the number of student
 							.key(function(d) { return d.IDNom; })
 							.entries(rows);
 							

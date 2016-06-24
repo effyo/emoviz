@@ -2,18 +2,18 @@
   //var globale
   var WIDTH = 900;
   var HEIGHT = 1100;
-  var WIDTHIMG = 45;// taille des glyphes
+  var WIDTHIMG = 45;//size of glyph
   var HEIGHTIMG = 45;
   var tabTemp = new Array("Plaisir", "Anxiete", "Curiosite", "Ennui", "Engagement", "Confusion", "Surprise", "Frustration");//, "Neutre"
-  var currentSelected = null; // necessaire a pour l'affichage des glyphes quand on passe la souris sur l'annotation
-  var listAnnotation = new Array();// enregistrer les annotations, pour pouvoir les modifier facilement
+  var currentSelected = null; //needed to post the glyph then the mouse 
+  var listAnnotation = new Array();// save annotation to deal with it easily
   
   var CheminComplet = document.location.href;
-	var NomDuFichier = CheminComplet.substring(CheminComplet.lastIndexOf( "/" )+1 ); // avoir le pseudonyme
+	var NomDuFichier = CheminComplet.substring(CheminComplet.lastIndexOf( "/" )+1 ); // to have th pseudonyme
 	
 	var count = 0;
 	var pos = CheminComplet.indexOf('/');
-	var listPos = new Array(); // Liste des positions des / dans la barre de recherche
+	var listPos = new Array(); // list of each position of / on the website bar
 
 	
 
@@ -24,11 +24,12 @@
 		listPos.push(pos);
 		pos = CheminComplet.indexOf('/', pos + 1);
 	}
-	var nomDossier = CheminComplet.substring(listPos[listPos.length-2]+1, listPos[listPos.length-1] );// On recherche le nom du fichier
+	var nomDossier = CheminComplet.substring(listPos[listPos.length-2]+1, listPos[listPos.length-1] );// to have the name of the file (name of the document)
 	
 	
 	/////////////////////////////////////////////////////////////////
-	///Fonction de création de pop up (pour rajouter les glyphes)////
+	///function to create the popUp. First arg is for the position of the annotation
+	// second one is for the name of the popUp. And third one is where we add it on the html page////
 	/////////////////////////////////////////////////////////////////
 	function pop(pos,namePop, parent) {
 		var myPopUp = document.createElement('div');
@@ -71,7 +72,7 @@
 		
 	}
 	/////////////////////////////////////////////////////////////////
-	///Meme fonction mais pour la version survolage de l'annotation//
+	///Same function but for the temp emotion, used then we pass (the mouse) on an annotation//
 	/////////////////////////////////////////////////////////////////
 	function popDef(parent, pos, tabEmotion, ajout){
 		var myPopUp = document.createElement('div');
@@ -111,12 +112,12 @@
 	}	
 	
 	
-	// décompose une chaine de caractère en tableau pour recréer une annotation
+	// take a string corresponding to emotion, to put it on a usable form for display it
 	function strtok (value){
 			var cpt = 0;
 			var pos = value.indexOf('/');
 			var posPrec = 0;
-			var res = new Array(); // c'est une liste des différentes emotions
+			var res = new Array(); // list of the feeling
 			////
 			var tabEmotion = new Array();
 			for (var i = 0; i<tabTemp.length;i++){
@@ -141,7 +142,7 @@
 			return tabEmotion;	
 		
 		}
-		// change le texte d'une annotation
+		// modify text of one annotation
 		function changeAnnotation(pos,newValue){
 			listAnnotation[pos].text = newValue;
 			
@@ -149,7 +150,7 @@
 		}
 		
 		
-		// Recherche une annotation dans notre liste d'annotation
+		// Find a specific annotation
 		function findAnnotation(annotation){
 			for (var i = 0; i<listAnnotation.length;i++){
 				if (annotation.shapes[0].geometry.x == listAnnotation[i][0].shapes[0].geometry.x &&
@@ -164,7 +165,7 @@
 			return -1;
 		
 		}
-		// Reset le contour du pop up, necessaire pour éviter d'avoir un cadre lorsque l'on crée une nouvelle annotation
+		// Reset le box around a pop up
 		function resetPopUp(myPopUp){
 			var elementChildren = myPopUp[0].children;
 			for (var i = 0; i < elementChildren.length; i++) {
@@ -178,7 +179,7 @@
 		/////////////////////////////////////////////////////////////////////////
 		function initDocument(parent){
 			
-			for (var i = 1; i<15; i++){ // Façon simple de limiter le nombre page => on regarde la taille de l'image
+			for (var i = 1; i<15; i++){ // 15 is a limit for the number of page. Didn't find to count the number of page into a file
 				var myDiv = document.createElement("div");
 					//myDiv.width = WIDTH;
 					//myDiv.height = HEIGHT;
@@ -204,7 +205,7 @@
 			
 			}
 		}
-		//bouton refresh (rien de grandiose)
+		//bouton refresh
 		function refresh(){
 			document.location.reload();
 		}	
