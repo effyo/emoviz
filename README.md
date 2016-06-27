@@ -21,12 +21,12 @@ After changing this, you go on the root of projetEmoviz, and launch : nodejs ser
 And use your browser to display your different webpage. If your work on local, you have to go on 127.0.0.1:8080/webpage.
 Don't miss the 8080, it's the port where you can enter.
 Voila a list of link after 8080/ that you can enter :
-  /Questionnaire/login -> it's the ESM for the experimentation, you have to precise the name (it create an entry in the database, if not existant)
-  /visualisation/version01 -> from version 01 to 07 (you have to precise a number for page 02 and 07, like /visualisation/version02/10, 10 is the ID of your student, so if your student is not existant, the page will be blank)
-  /visualisation -> resume with links all the version
-  /image/Presentation -> Page to present the experimentation for Cate. Link to the two document used by Cate. (in french)
-  /image/Solo/*/login -> the * represent the document used. Example : In projetEmoviz/public/ImageCours, you can find some files, like "ChapitreEmotions", it's what we used to complet the *. This link give you the possibility to write/erase or modify your annotations.
+  ..*/Questionnaire/login -> it's the ESM for the experimentation, you have to precise the name (it create an entry in the database, if not existant)
+  ..*/visualisation/version01 -> from version 01 to 07 (you have to precise a number for page 02 and 07, like /visualisation/version02/10, 10 is the ID of your student, so if your student is not existant, the page will be blank)
+  ..*/visualisation -> resume with links all the version
+  ..*/image/Presentation -> Page to present the experimentation for Cate. Link to the two document used by Cate. (in french)
+  ..*/image/Solo/*/login -> the * represent the document used. Example : In projetEmoviz/public/ImageCours, you can find some files, like "ChapitreEmotions", it's what we used to complet the *. This link give you the possibility to write/erase or modify your annotations.
   Warning : for the moment, we use some precise format for our document.
-  /image/General/*/login -> Same than before. It's the general link, you can see all the annotation that you wrote, but also from your colleague. (no erase or modify possible).
-  /image/visualisation/login -> it permit you to watch all of your annotation on one page, without the rest of the document.
+  ..*/image/General/*/login -> Same than before. It's the general link, you can see all the annotation that you wrote, but also from your colleague. (no erase or modify possible).
+  ..*/image/visualisation/login -> it permit you to watch all of your annotation on one page, without the rest of the document.
   
