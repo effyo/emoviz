@@ -1,7 +1,7 @@
 {
 	"name" : "emoviz",
 	"description" : " Project about study around emotion",
-	"version" , "1.0.0",
+	"version" : "1.0.0",
 	"devDependencies": {
 		"socket.io": "1.4.5",
 		"mysql" : "2.10.2",
