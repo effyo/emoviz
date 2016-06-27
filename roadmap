@@ -1,4 +1,4 @@
 Amélioration à effectuer pour les prochaines version :
-	faire le fichier package.json
-	Apporter des visualisations aux projets
+	Faire le fichier package.json (les extensions sont visible, mais je ne pense pas qu'il soit utilisable dans l'état)
+	Apporter des visualisations aux projets : trois ont déjà été créer sur le csv
 	Mettre au propre le projet pour qu'il se lance facilement
