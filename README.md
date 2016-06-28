@@ -15,9 +15,10 @@ If use multiple library, others than nodejs :
  - mysql, you can find a tutorial here: https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/ . It permit to use a mysql db with the server.
 
 With the package and all the library added, you have to precise your db server. You go on the file projetEmoviz, you open the file server.js. Find the variable connection, and add the user, password and database name.
+
 Take care ! The DB must be formatate before. You can find the structure on the root of this project (sql file useable).
 
-After changing this, you go on the root of projetEmoviz, and launch : nodejs server.js
+After changing this, you go on the root of projetEmoviz, and launch : nodejs start
 And use your browser to display your different webpage. If your work on local, you have to go on 127.0.0.1:8080/webpage.
 Don't miss the 8080, it's the port where you can enter.
 Voila a list of link after 8080/ that you can enter :
