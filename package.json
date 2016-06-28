@@ -23,6 +23,6 @@
 		"express" : "4.13.4"
 	},
 	"scripts" : {
-		"start" : "nodejs server.js"
+		"start" : "nodejs server.js &"
 	}
 }
