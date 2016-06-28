@@ -8,7 +8,7 @@ It's decomposed into two tools :
 The first one use a ESM (experience sampling method) to ask the student their emotions.
 The second one use a system of annotation, which ask their emotion then they annotate.
 
-The two tools use nodejs, so you need to install it first (you can find documentation here : https://nodejs.org/en/).
+The two tools use nodejs, so you need to install it first (you can find documentation here : https://nodejs.org/en/). You can install it with npm, with the command npm install. And launch the server with npm start .
 If use multiple library, others than nodejs : 
  - SocketIo, that you can find here : http://socket.io/. It permit communication between the server and the user, but it permit too, to communication between user (not the user directly, the computer eh).
  - Express, that you can find here : http://expressjs.com/ . This library permit to manage our different link easily.
