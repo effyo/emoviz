@@ -1,10 +1,28 @@
 {
 	"name" : "emoviz",
-	"description" : " Project about study around emotion",
-	"version" , "1.0.0",
-	"devDependencies": {
+	"description" : "Project about study around emotion",
+	"version" : "1.0.0",
+	"author" : "Maxence Trannois <maxence.trannois@gmail.com>",
+	"contributors" : [
+		{
+			"name" : "Aurelien Tabard",
+			"email" : "aurelien@tabard.fr"
+		},
+		{
+			"name" : "Elise Lavoue",
+			"email" : "elise.lavoue@univ-lyon3.fr"
+		},
+		{
+			"name" : "romain vuillemot",
+			"email" : "romain.vuillemot@gmail.com"
+		}
+	],
+	"dependencies" : {
 		"socket.io": "1.4.5",
 		"mysql" : "2.10.2",
-		"express" : "4.13.4",
+		"express" : "4.13.4"
+	},
+	"scripts" : {
+		"start" : "nodejs server.js"
 	}
 }
